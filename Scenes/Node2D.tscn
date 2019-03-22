@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Button.gd" type="Script" id=1]
-[ext_resource path="res://sodacap.jpg" type="Texture" id=2]
-[ext_resource path="res://SpriteRotation.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Button.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/sodacap.jpg" type="Texture" id=2]
+[ext_resource path="res://Scripts/SpriteRotation.gd" type="Script" id=3]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 28.0627
 
 [node name="Node2D" type="Node2D"]
@@ -25,6 +25,6 @@ texture = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 one_way_collision_margin = 0.0
 

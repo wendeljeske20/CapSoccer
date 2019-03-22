@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sodacap.jpg-4bc64579ceec749d04594b18ba3ac93b.stex"
+path="res://.import/icon.png-f9ba9008f31679cd240e2c5f33a9a4fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sodacap.jpg"
-dest_files=[ "res://.import/sodacap.jpg-4bc64579ceec749d04594b18ba3ac93b.stex" ]
+source_file="res://Sprites/icon.png"
+dest_files=[ "res://.import/icon.png-f9ba9008f31679cd240e2c5f33a9a4fb.stex" ]
 
 [params]
 
