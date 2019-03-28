@@ -36,7 +36,7 @@ func _process(delta):
 	
 	pass
 
-func SpawnButtons(position):
+func SpawnButtons():
 	for i in range(0, 5):
 		var button = buttonPreload.instance()
 		button.position = startPositions[i]
