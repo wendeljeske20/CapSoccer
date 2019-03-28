@@ -9,19 +9,11 @@ var startPositions = []
 
 func _ready():
 	
-	startPositions.append(Vector2(-350, 200))
-	startPositions.append(Vector2(-350, -200))
-	startPositions.append(Vector2(-250, 100))
-	startPositions.append(Vector2(-250, -100))
-	startPositions.append(Vector2(-150, 0))
+	
 	
 	
 		
-	for i in range(0, 5):
-		var button = buttonPreload.instance()
-		button.position = startPositions[i]
-		get_node("").add_child(button)
-		buttons.append(button)
+	
 		
 		
 
@@ -33,6 +25,11 @@ func _process(delta):
 		
 	pass
 	
-func Spawnbutton(position):
-
+func Spawnbuttons():
+	for i in range(0, 5):
+		var button = buttonPreload.instance()
+		button.position = startPositions[i]
+		get_node("").add_child(button)
+		buttons.append(button)
+		
 	pass
