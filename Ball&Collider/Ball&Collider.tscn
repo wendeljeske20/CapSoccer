@@ -28,7 +28,7 @@ texture = ExtResource( 1 )
 polygon = PoolVector2Array( -0.138069, 15.5702, 989.809, 16.1551, 991.869, 585.898, 31.4675, 585.49, 31.8753, 17.4054, 0.269737, 17.6093, 0.0658798, 599.559, 1023.05, 598.981, 1024.16, 0.64267, 0.335205, 1.7507 )
 
 [node name="Ball" type="Area2D" parent="."]
-position = Vector2( -488.83, 73.6576 )
+position = Vector2( -67.1138, 15.1615 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
