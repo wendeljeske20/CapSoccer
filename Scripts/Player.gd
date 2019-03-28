@@ -21,6 +21,7 @@ func _ready():
 	pass 
 
 func _process(delta):
+	
 	#for i in range(0, 5):
 		#print(buttons[i].position)
 	ProcessInput()
@@ -37,16 +38,21 @@ func _process(delta):
 	pass
 
 func SpawnButtons():
-	for i in range(0, 5):
+	for i in range(0, 3):
 		var button = buttonPreload.instance()
 		button.position = startPositions[i]
 		get_node("").add_child(button)
 		buttons.append(button)
 	pass
+	
+func ResetButtonPositions():
+	for i in range(0, 3):
+		buttons[i].position = startPositions[i]
+	pass
 
 func ProcessInput():
 	var currentController = "controller"+playerNumber
-	inputRight = Input.get_action_strength(currentController+"_right");
+	inputRight = Input.get_action_strength(currentController+"_right")
 	inputLeft = Input.get_action_strength(currentController+"_left");
 	inputUp = Input.get_action_strength(currentController+"_up");
 	inputDown = Input.get_action_strength(currentController+"_down");
