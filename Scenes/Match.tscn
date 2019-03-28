@@ -12,3 +12,6 @@ position = Vector2( 144.823, -21.1012 )
 
 [node name="Player2" parent="MatchManager" instance=ExtResource( 2 )]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
