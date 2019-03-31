@@ -4,9 +4,10 @@ var speed = 5
 var angle = 0
 #var shouldMove = false
 
+func _ready():
+	pass
+
 func _process(delta):
-	#self.rotation = self.rotation + 0.1
-	#self.rotation_degrees += 1
 	pass
 
 #func _physics_process(delta):
@@ -20,6 +21,6 @@ func _process(delta):
 	
 	#pass
 
-# Direction is the angle in radians
-func SetDirection(direction):
-	self.rotation = deg2rad(90)
+# Angle in radians
+func SetDirection(angle):
+	rotate(angle)

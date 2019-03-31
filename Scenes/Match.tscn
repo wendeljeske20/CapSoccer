@@ -6,11 +6,13 @@
 [node name="Match" type="Node2D"]
 
 [node name="MatchManager" parent="." instance=ExtResource( 1 )]
-position = Vector2( 144.823, -21.1012 )
 
 [node name="Player1" parent="MatchManager" instance=ExtResource( 2 )]
+position = Vector2( 0, -1 )
+playerID = "1"
 
 [node name="Player2" parent="MatchManager" instance=ExtResource( 2 )]
+playerID = "2"
 
 [node name="MatchTimer" type="Timer" parent="MatchManager"]
 wait_time = 10.0
@@ -18,10 +20,11 @@ one_shot = true
 autostart = true
 
 [node name="TimeLabel" type="Label" parent="MatchManager"]
-margin_left = -194.964
-margin_top = -273.227
-margin_right = -92.9641
-margin_bottom = -224.227
+anchor_bottom = 0.3
+margin_left = -50.0
+margin_top = -300.58
+margin_right = 50.0
+margin_bottom = -250.58
 text = "10"
 align = 1
 valign = 1

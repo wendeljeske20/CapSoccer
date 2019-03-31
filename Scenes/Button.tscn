@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/sodacap.jpg" type="Texture" id=2]
-[ext_resource path="res://Scripts/SpriteRotation.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 28.0627
@@ -16,9 +15,9 @@ linear_damp = 1.0
 angular_damp = 1.0
 
 [node name="Sprite" type="Sprite" parent="RigidBody2D"]
+rotation = 1.5708
 scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 2 )
-script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource( 1 )

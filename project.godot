@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="lala"
+config/name="CapSoccer"
 run/main_scene="res://Scenes/Match.tscn"
 config/icon="res://Sprites/icon.png"
 
