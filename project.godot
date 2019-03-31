@@ -17,47 +17,47 @@ _global_script_class_icons={
 
 config/name="lala"
 run/main_scene="res://Scenes/Match.tscn"
-config/icon="res://icon.png"
+config/icon="res://Sprites/icon.png"
 
 [input]
 
 controller1_right={
-"deadzone": 0.1,
+"deadzone": 0.15,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":1.0,"script":null)
  ]
 }
 controller1_left={
-"deadzone": 0.1,
+"deadzone": 0.15,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":0,"axis_value":-1.0,"script":null)
  ]
 }
 controller1_up={
-"deadzone": 0.1,
+"deadzone": 0.15,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":-1.0,"script":null)
  ]
 }
 controller1_down={
-"deadzone": 0.1,
+"deadzone": 0.15,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":1,"axis_value":1.0,"script":null)
  ]
 }
 controller2_right={
-"deadzone": 0.1,
+"deadzone": 0.15,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":0,"axis_value":1.0,"script":null)
  ]
 }
 controller2_left={
-"deadzone": 0.1,
+"deadzone": 0.15,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":0,"axis_value":-1.0,"script":null)
  ]
 }
 controller2_up={
-"deadzone": 0.1,
+"deadzone": 0.15,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":1,"axis_value":-1.0,"script":null)
  ]
 }
 controller2_down={
-"deadzone": 0.1,
+"deadzone": 0.15,
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":1,"axis":1,"axis_value":1.0,"script":null)
  ]
 }

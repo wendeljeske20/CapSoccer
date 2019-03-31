@@ -33,6 +33,7 @@ func _process(delta):
 	#print(buttons[0].rotation)
 	
 	var dirInRad = deg2rad(movementDirection.angle())
+	print(movementDirection)
 	#buttons[0].SetDirection(dirInRad)
 	
 	pass
