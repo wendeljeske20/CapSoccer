@@ -1,6 +1,8 @@
 extends Node2D
 
 export(String) var playerID
+onready var scoreLabel = get_node("../HudManager/ScorePanel/Player"+ playerID +"ScoreLabel")
+var score = 0;
 
 var buttonPreload = preload("res://Scenes/Button.tscn")
 var buttons = []
@@ -13,6 +15,8 @@ func _ready():
 	pass 
 
 func _process(delta):
+	
+	scoreLabel.text = str(score)
 	
 	#for i in range(0, 5):
 		#print(buttons[i].position)

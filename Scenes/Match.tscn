@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/MatchManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/black.png" type="Texture" id=3]
 
 [node name="Match" type="Node2D"]
 
@@ -14,20 +15,49 @@ playerID = "1"
 [node name="Player2" parent="MatchManager" instance=ExtResource( 2 )]
 playerID = "2"
 
-[node name="MatchTimer" type="Timer" parent="MatchManager"]
-wait_time = 10.0
-one_shot = true
-autostart = true
+[node name="HudManager" type="Node2D" parent="MatchManager"]
 
-[node name="TimeLabel" type="Label" parent="MatchManager"]
+[node name="ScorePanel" type="Sprite" parent="MatchManager/HudManager"]
+position = Vector2( 0, -260 )
+texture = ExtResource( 3 )
+
+[node name="TimeLabel" type="Label" parent="MatchManager/HudManager/ScorePanel"]
+anchor_right = 0.5
 anchor_bottom = 0.3
-margin_left = -50.0
-margin_top = -300.58
-margin_right = 50.0
-margin_bottom = -250.58
+margin_left = -20.0
+margin_top = -20.0
+margin_right = -50.0
+margin_bottom = -2.0
+rect_scale = Vector2( 1.33, 1.33 )
 text = "10"
 align = 1
 valign = 1
+
+[node name="Player1ScoreLabel" type="Label" parent="MatchManager/HudManager/ScorePanel"]
+anchor_right = 0.5
+anchor_bottom = 0.3
+margin_left = -60.0
+margin_top = -20.0
+margin_right = -80.0
+margin_bottom = 8.0
+text = "0"
+align = 1
+valign = 1
+
+[node name="Player2ScoreLabel" type="Label" parent="MatchManager/HudManager/ScorePanel"]
+anchor_right = 0.5
+anchor_bottom = 0.3
+margin_left = 20.0
+margin_top = -20.0
+margin_bottom = 8.0
+text = "0"
+align = 1
+valign = 1
+
+[node name="MatchTimer" type="Timer" parent="MatchManager/HudManager/ScorePanel"]
+wait_time = 10.0
+one_shot = true
+autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

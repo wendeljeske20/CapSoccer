@@ -4,8 +4,9 @@ onready var player1 = get_node("Player1")
 onready var player2 = get_node("Player2")
 
 onready var currentPlayer = player1
-onready var matchTimer = get_node("MatchTimer")
-onready var timeLabel = get_node("TimeLabel")
+onready var matchTimer = get_node("HudManager/ScorePanel/MatchTimer")
+onready var timeLabel = get_node("HudManager/ScorePanel/TimeLabel")
+
 
 # Input Section
 var inputRight = 0
