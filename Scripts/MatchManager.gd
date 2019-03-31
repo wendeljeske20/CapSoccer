@@ -51,11 +51,16 @@ func PassTurn():
 
 func ProcessInput():
 	var currentController = "controller"+currentPlayer.playerID
-	print(currentController)
+	
 	inputRight = Input.get_action_strength(currentController+"_right")
 	inputLeft = Input.get_action_strength(currentController+"_left");
 	inputUp = Input.get_action_strength(currentController+"_up");
 	inputDown = Input.get_action_strength(currentController+"_down");
+	
+	if(Input.is_action_just_pressed(currentController+"_lb")):
+		currentPlayer.CycleCurrentButton(-1)
+	if(Input.is_action_just_pressed(currentController+"_rb")):
+		currentPlayer.CycleCurrentButton(1)
 	
 	movementDirection.x = inputRight - inputLeft
 	movementDirection.y = inputUp - inputDown

@@ -40,3 +40,12 @@ func ResetButtonPositions():
 
 func SetCurrentButton(direction):
 	buttons[currentButton].SetDirection(-direction)
+
+# Change between buttons
+func CycleCurrentButton(val):
+	currentButton += val
+	var buttonsQtd = buttons.size()
+	if(currentButton >= buttonsQtd):
+		currentButton -= buttonsQtd
+	elif(currentButton < 0):
+		currentButton += buttonsQtd
