@@ -33,12 +33,12 @@ func _process(delta):
 	ProcessInput()
 	currentPlayer.SetCurrentButton(movementDirection.angle())
 	
-	if Input.is_action_just_pressed("ui_page_down"):
+	
+	if matchTimer.time_left <= 0:
 		PassTurn()
-		#player1.ResetButtonPositions()
 		
-	timeLabel.set_text(str(int(matchTimer.get_time_left())))
-	#print(matchTimer.get_time_left())
+		
+	timeLabel.set_text(str(int(round(matchTimer.get_time_left()))))
 	pass
 	
 func PassTurn():
@@ -46,7 +46,7 @@ func PassTurn():
 		currentPlayer = player2
 	else:
 		currentPlayer = player1
-	
+	matchTimer.start();
 	pass
 
 func ProcessInput():
@@ -61,6 +61,8 @@ func ProcessInput():
 		currentPlayer.CycleCurrentButton(-1)
 	if(Input.is_action_just_pressed(currentController+"_rb")):
 		currentPlayer.CycleCurrentButton(1)
+	#if(Input.is_action_just_pressed(currentController+"_rb")):
+	#	PassTurn()
 	
 	movementDirection.x = inputRight - inputLeft
 	movementDirection.y = inputUp - inputDown
