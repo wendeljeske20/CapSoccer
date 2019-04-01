@@ -1,26 +1,14 @@
-extends Node2D
+extends RigidBody2D
 
-var speed = 5
-var angle = 0
-#var shouldMove = false
+var speed = 1000
+var m_angle = 0
 
-func _ready():
-	pass
-
-func _process(delta):
-	pass
-
-#func _physics_process(delta):
-	
-	#if shouldMove:
-	
-	#var angleInRad = deg2rad(angle)
-	#apply_impulse(Vector2.ZERO, Vector2(cos(angleInRad), sin(angleInRad)) * delta * 1000 * verticalDelta)
-	
-	#shouldMove = false
-	
-	#pass
+func _integrate_forces(state):
+	rotation = m_angle
 
 # Angle in radians
 func SetDirection(angle):
-	rotate(angle)
+	m_angle = angle
+
+func Shoot():
+	apply_impulse(Vector2.ZERO, Vector2(cos(rotation), sin(rotation)) * speed)

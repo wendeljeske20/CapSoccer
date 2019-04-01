@@ -18,27 +18,19 @@ func _process(delta):
 	
 	scoreLabel.text = str(score)
 	
-	#for i in range(0, 5):
-		#print(buttons[i].position)
-	
-	#for i in range(0, 5):
-		#print(buttons[i].rotation)
-	
-	#buttons[0].rotation += 1
-	#print(buttons[0].rotation)	
 	pass
 
 func SpawnButtons():
-	for i in range(0, 3):
+	for i in range(0, startPositions.size()):
 		var button = buttonPreload.instance()
 		button.position = startPositions[i]
 		#button.rotation = -PI/2
 		get_node("").add_child(button)
 		buttons.append(button)
 	pass
-	
+
 func ResetButtonPositions():
-	for i in range(0, 3):
+	for i in range(0, buttons.size()):
 		buttons[i].position = startPositions[i]
 	pass
 
@@ -53,3 +45,6 @@ func CycleCurrentButton(val):
 		currentButton -= buttonsQtd
 	elif(currentButton < 0):
 		currentButton += buttonsQtd
+
+func ShootButton():
+	buttons[currentButton].Shoot()

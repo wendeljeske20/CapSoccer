@@ -7,13 +7,13 @@ onready var currentPlayer = player1
 onready var matchTimer = get_node("HudManager/ScorePanel/MatchTimer")
 onready var timeLabel = get_node("HudManager/ScorePanel/TimeLabel")
 
-
 # Input Section
 var inputRight = 0
 var inputLeft = 0
 var inputUp = 0
 var inputDown = 0
 var movementDirection = Vector2()
+var changeDirection = false
 
 func _ready():
 	player1.startPositions.append(Vector2(-200, 200))
@@ -32,16 +32,16 @@ func _ready():
 	
 func _process(delta):
 	ProcessInput()
-	currentPlayer.SetCurrentButton(movementDirection.angle())
 	
+	if changeDirection:
+		currentPlayer.SetCurrentButton(movementDirection.angle())
 	
 	if matchTimer.time_left <= 0:
 		PassTurn()
-		
-		
+	
 	timeLabel.set_text(str(int(round(matchTimer.get_time_left()))))
 	pass
-	
+
 func PassTurn():
 	if currentPlayer == player1:
 		currentPlayer = player2
@@ -58,10 +58,19 @@ func ProcessInput():
 	inputUp = Input.get_action_strength(currentController+"_up");
 	inputDown = Input.get_action_strength(currentController+"_down");
 	
+	# If the absolute value of all the inputs summed is more than 0
+	# Just checking if there was any input whatsoever
+	if (abs(inputRight + inputLeft + inputUp + inputDown) > 0.5):
+		changeDirection = true
+	else:
+		changeDirection = false
+	
 	if(Input.is_action_just_pressed(currentController+"_lb")):
 		currentPlayer.CycleCurrentButton(-1)
 	if(Input.is_action_just_pressed(currentController+"_rb")):
 		currentPlayer.CycleCurrentButton(1)
+	if(Input.is_action_just_pressed(currentController+"_a_button")):
+		currentPlayer.ShootButton()
 	#if(Input.is_action_just_pressed(currentController+"_rb")):
 	#	PassTurn()
 	
