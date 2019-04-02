@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/field.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/goal.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 44.2115, 125.559 )
+
+[node name="Field" type="Node2D"]
+
+[node name="Field" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Field"]
+scale = Vector2( 1.06607, 0.982756 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Field"]
+position = Vector2( -511.464, -301.035 )
+polygon = PoolVector2Array( -0.138069, 15.5702, 989.809, 16.1551, 991.869, 585.898, 31.4675, 585.49, 31.8753, 17.4054, 0.269737, 17.6093, 0.0658798, 599.559, 1023.05, 598.981, 1024.16, 0.64267, 0.335205, 1.7507 )
+
+[node name="GoalLeft" type="Area2D" parent="."]
+position = Vector2( -472.199, -48.2798 )
+
+[node name="Sprite" type="Sprite" parent="GoalLeft"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalLeft"]
+shape = SubResource( 3 )
+
+[node name="GoalRight" type="Area2D" parent="."]
+position = Vector2( 472.199, -48.28 )
+
+[node name="Sprite" type="Sprite" parent="GoalRight"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalRight"]
+shape = SubResource( 3 )
+
