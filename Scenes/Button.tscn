@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/sodacap.jpg" type="Texture" id=2]
@@ -6,10 +6,17 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 28.0627
 
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.94902, 0.352941, 0.352941, 1 )
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.772549, 0.772549, 0.772549, 1 )
+
 [node name="Button" type="RigidBody2D"]
 gravity_scale = 0.0
 can_sleep = false
-linear_damp = 1.0
+linear_damp = 3.0
 angular_damp = 1.0
 script = ExtResource( 1 )
 
@@ -21,4 +28,19 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 one_way_collision_margin = 0.0
+
+[node name="ShootStrength" type="ProgressBar" parent="."]
+visible = false
+anchor_right = 0.17
+anchor_bottom = 1.0
+margin_left = -31.7064
+margin_top = 33.2755
+margin_right = 35.0
+margin_bottom = 47.5113
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+max_value = 10.0
+step = 1.0
+value = 4.0
+percent_visible = false
 
