@@ -2,6 +2,7 @@ extends Node2D
 
 onready var player1 = get_node("Player1")
 onready var player2 = get_node("Player2")
+onready var ball = get_node("Ball")
 
 onready var currentPlayer = player1
 onready var matchTimer = get_node("HudManager/ScorePanel/MatchTimer")
@@ -17,12 +18,12 @@ var changeDirection = false
 
 func _ready():
 	player1.startPositions.append(Vector2(-100, 0))
-	player1.startPositions.append(Vector2(0, 200))
-	player1.startPositions.append(Vector2(200, 200))
+	player1.startPositions.append(Vector2(-250, +150))
+	player1.startPositions.append(Vector2(-250, -150))
 		
-	player2.startPositions.append(Vector2(-200, -200))
-	player2.startPositions.append(Vector2(0, -200))
-	player2.startPositions.append(Vector2(200, -200))
+	player2.startPositions.append(Vector2(100, 0))
+	player2.startPositions.append(Vector2(250, +150))
+	player2.startPositions.append(Vector2(250, -150))
 	
 	player1.SpawnButtons()
 	player2.SpawnButtons()
@@ -40,6 +41,14 @@ func _process(delta):
 		PassTurn()
 	
 	timeLabel.set_text(str(int(round(matchTimer.get_time_left()))))
+	
+	if ball.goalScored != 0:
+		if ball.goalScored == 1:
+			player1.score += 1
+		else:
+			player2.score += 1
+			
+		ball.goalScored = 0
 	pass
 
 func PassTurn():

@@ -1,31 +1,29 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Field.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/MatchManager.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/black.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/MatchManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/black.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=5]
 
 [node name="Match" type="Node2D"]
 
 [node name="Field" parent="." instance=ExtResource( 1 )]
 
-[node name="Ball" parent="." instance=ExtResource( 2 )]
+[node name="MatchManager" parent="." instance=ExtResource( 2 )]
 
-[node name="MatchManager" parent="." instance=ExtResource( 3 )]
-
-[node name="Player1" parent="MatchManager" instance=ExtResource( 4 )]
+[node name="Player1" parent="MatchManager" instance=ExtResource( 3 )]
 position = Vector2( 0, -1 )
 playerID = "1"
 
-[node name="Player2" parent="MatchManager" instance=ExtResource( 4 )]
+[node name="Player2" parent="MatchManager" instance=ExtResource( 3 )]
 playerID = "2"
 
 [node name="HudManager" type="Node2D" parent="MatchManager"]
 
 [node name="ScorePanel" type="Sprite" parent="MatchManager/HudManager"]
 position = Vector2( 0, -260 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="TimeLabel" type="Label" parent="MatchManager/HudManager/ScorePanel"]
 anchor_right = 0.5
@@ -64,6 +62,9 @@ valign = 1
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="Ball" parent="MatchManager" instance=ExtResource( 5 )]
+position = Vector2( 0.773743, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
