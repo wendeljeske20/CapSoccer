@@ -81,8 +81,8 @@ func ProcessInput():
 		currentPlayer.CycleCurrentButton(1)
 	if(Input.is_action_just_pressed(currentController+"_a_button")):
 		currentPlayer.ShootButton()
-	#if(Input.is_action_just_pressed(currentController+"_rb")):
-	#	PassTurn()
+	if(Input.is_action_just_pressed(currentController+"_start_button")):
+		PassTurn()
 	
 	movementDirection.x = inputRight - inputLeft
 	movementDirection.y = inputUp - inputDown
