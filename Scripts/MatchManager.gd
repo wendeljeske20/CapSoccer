@@ -16,7 +16,7 @@ var movementDirection = Vector2()
 var changeDirection = false
 
 func _ready():
-	player1.startPositions.append(Vector2(-200, 200))
+	player1.startPositions.append(Vector2(-100, 0))
 	player1.startPositions.append(Vector2(0, 200))
 	player1.startPositions.append(Vector2(200, 200))
 		
@@ -43,6 +43,7 @@ func _process(delta):
 	pass
 
 func PassTurn():
+	currentPlayer.ClearCurrentButtonShoot()
 	if currentPlayer == player1:
 		currentPlayer = player2
 	else:

@@ -7,7 +7,7 @@ var isShooting = false
 var shootMin = 0
 var shootMax = 10
 var shootForce = 0
-var shootIncrease = 3
+var shootIncrease = 10
 
 onready var shootBar = get_node("ShootStrength")
 
@@ -39,6 +39,9 @@ func Shoot():
 		shootBar.visible = true
 	else:
 		apply_impulse(Vector2.ZERO, Vector2(cos(rotation), sin(rotation)) * speed * shootForce)
-		shootForce = 0
-		isShooting = false
-		shootBar.visible = false
+		ClearShoot()
+
+func ClearShoot():
+	shootForce = 0
+	isShooting = false
+	shootBar.visible = false

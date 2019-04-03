@@ -39,6 +39,7 @@ func SetCurrentButton(direction):
 
 # Change between buttons
 func CycleCurrentButton(val):
+	ClearCurrentButtonShoot()
 	currentButton += val
 	var buttonsQtd = buttons.size()
 	if(currentButton >= buttonsQtd):
@@ -48,3 +49,6 @@ func CycleCurrentButton(val):
 
 func ShootButton():
 	buttons[currentButton].Shoot()
+
+func ClearCurrentButtonShoot():
+	buttons[currentButton].ClearShoot()
