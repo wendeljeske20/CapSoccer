@@ -14,9 +14,11 @@ var paint = 0;
 onready var shootBar = get_node("ShootStrength")
 onready var sprite = get_node("Sprite")
 
-func _process(delta):
+func _ready():
 	if paint == 1:
 		sprite.modulate = Color(1, 0, 0)
+
+func _process(delta):
 	if (isShooting):
 		shootForce += shootIncrease * delta
 	

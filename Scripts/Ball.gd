@@ -6,6 +6,8 @@ var canScore = true
 # 1 for player 1 and 2 for player 2. 0 for none
 var goalScored = 0
 
+#const GoalClass = preload("Goal.gd")
+
 func _ready():
 	resetPosition()
 	pass 
@@ -35,10 +37,9 @@ func _integrate_forces(state):
 
 func checkCollisions(collidingBodies):
 	for i in collidingBodies.size():
-		if collidingBodies[i].name == "GoalLeft":
-			checkGoal(true)
-		if collidingBodies[i].name == "GoalRight":
-			checkGoal(false)
+		# Checking if it's a goal. Pretty ugly way, but works. *shrug*
+		if "isLeftSide" in collidingBodies[i].get_node(""):
+			checkGoal(collidingBodies[i].get_node("").isLeftSide)
 	pass
 
 func checkGoal(isLeftSide):
