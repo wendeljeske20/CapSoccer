@@ -23,6 +23,8 @@ func _process(delta):
 func SpawnButtons():
 	for i in range(0, startPositions.size()):
 		var button = buttonPreload.instance()
+		if playerID == "1":
+			button.paint = 1
 		button.position = startPositions[i]
 		#button.rotation = -PI/2
 		get_node("").add_child(button)

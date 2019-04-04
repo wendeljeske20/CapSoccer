@@ -9,9 +9,14 @@ var shootMax = 10
 var shootForce = 0
 var shootIncrease = 10
 
+var paint = 0;
+
 onready var shootBar = get_node("ShootStrength")
+onready var sprite = get_node("Sprite")
 
 func _process(delta):
+	if paint == 1:
+		sprite.modulate = Color(1, 0, 0)
 	if (isShooting):
 		shootForce += shootIncrease * delta
 	
@@ -45,3 +50,6 @@ func ClearShoot():
 	shootForce = 0
 	isShooting = false
 	shootBar.visible = false
+	
+
+	
