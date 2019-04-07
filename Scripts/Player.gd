@@ -34,6 +34,7 @@ func SpawnButtons():
 func ResetButtonPositions():
 	for i in range(0, buttons.size()):
 		buttons[i].position = startPositions[i]
+		print(buttons[i].position)
 	pass
 
 func SetCurrentButton(direction):

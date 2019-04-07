@@ -7,6 +7,7 @@ onready var ball = get_node("Ball")
 onready var currentPlayer = player1
 onready var matchTimer = get_node("HudManager/ScorePanel/MatchTimer")
 onready var timeLabel = get_node("HudManager/ScorePanel/TimeLabel")
+onready var timeBar = get_node("HudManager/ScorePanel/TimeBar")
 
 # Input Section
 var inputRight = 0
@@ -41,12 +42,17 @@ func _process(delta):
 		PassTurn()
 	
 	timeLabel.set_text(str(int(round(matchTimer.get_time_left()))))
+	timeBar.value = matchTimer.get_time_left()
 	
 	if ball.goalScored != 0:
 		if ball.goalScored == 1:
 			player1.score += 1
 		else:
 			player2.score += 1
+			
+		
+		#player1.ResetButtonPositions();
+		#player2.ResetButtonPositions();
 			
 		ball.goalScored = 0
 	pass

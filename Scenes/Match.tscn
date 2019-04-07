@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Field.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/MatchManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/black.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0.831373, 1, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Match" type="Node2D"]
 
@@ -58,13 +70,25 @@ text = "0"
 align = 1
 valign = 1
 
+[node name="TimeBar" type="ProgressBar" parent="MatchManager/HudManager/ScorePanel"]
+margin_left = -60.0
+margin_top = 21.0
+margin_right = 60.0
+margin_bottom = 35.0
+custom_styles/fg = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+max_value = 10.0
+step = 0.05
+value = 5.0
+percent_visible = false
+
 [node name="MatchTimer" type="Timer" parent="MatchManager/HudManager/ScorePanel"]
 wait_time = 10.0
 one_shot = true
 autostart = true
 
 [node name="Ball" parent="MatchManager" instance=ExtResource( 5 )]
-position = Vector2( 0.773743, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

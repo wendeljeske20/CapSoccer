@@ -15,6 +15,7 @@ bg_color = Color( 0.772549, 0.772549, 0.772549, 1 )
 
 [node name="Button" type="RigidBody2D"]
 rotation = 1.5708
+mass = 1.2
 gravity_scale = 0.0
 can_sleep = false
 linear_damp = 3.0
@@ -41,7 +42,7 @@ margin_bottom = 47.5113
 custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
 max_value = 10.0
-step = 1.0
+step = 0.5
 value = 4.0
 percent_visible = false
 
