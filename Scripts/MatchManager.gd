@@ -7,7 +7,7 @@ onready var ball = get_node("Ball")
 onready var currentPlayer = player1
 onready var matchTimer = get_node("HudManager/ScorePanel/MatchTimer")
 onready var timeLabel = get_node("HudManager/ScorePanel/TimeLabel")
-onready var timeBar = get_node("HudManager/ScorePanel/TimeBar")
+onready var timeBar = get_node("HudManager/ScorePanel/TurnTimeBar")
 
 # Input Section
 var inputRight = 0
@@ -29,6 +29,7 @@ func _ready():
 	player1.SpawnButtons()
 	player2.SpawnButtons()
 	
+	
 	#currentTurnPlayer = player1
 	pass 
 	
@@ -43,6 +44,8 @@ func _process(delta):
 	
 	timeLabel.set_text(str(int(round(matchTimer.get_time_left()))))
 	timeBar.value = matchTimer.get_time_left()
+	
+	
 	
 	if ball.goalScored != 0:
 		if ball.goalScored == 1:
@@ -65,6 +68,8 @@ func PassTurn():
 		currentPlayer = player1
 	matchTimer.start();
 	pass
+	
+
 
 func ProcessInput():
 	var currentController = "controller"+currentPlayer.playerID

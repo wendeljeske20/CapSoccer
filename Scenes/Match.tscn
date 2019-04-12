@@ -70,7 +70,7 @@ text = "0"
 align = 1
 valign = 1
 
-[node name="TimeBar" type="ProgressBar" parent="MatchManager/HudManager/ScorePanel"]
+[node name="TurnTimeBar" type="ProgressBar" parent="MatchManager/HudManager/ScorePanel"]
 margin_left = -60.0
 margin_top = 21.0
 margin_right = 60.0
