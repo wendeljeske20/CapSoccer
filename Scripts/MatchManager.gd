@@ -1,11 +1,16 @@
 extends Node2D
 
+# Game Objects
 onready var player1 = get_node("Player1")
 onready var player2 = get_node("Player2")
 onready var ball = get_node("Ball")
+onready var matchParams = get_node("MatchParameters")
 
-onready var currentPlayer = player1
+var currentPlayer = null
+
+# Timers
 onready var matchTimer = get_node("HudManager/ScorePanel/MatchTimer")
+onready var turnTimer = get_node("HudManager/ScorePanel/TurnTimer")
 onready var timeLabel = get_node("HudManager/ScorePanel/TimeLabel")
 onready var timeBar = get_node("HudManager/ScorePanel/TurnTimeBar")
 
@@ -17,46 +22,55 @@ var inputDown = 0
 var movementDirection = Vector2()
 var changeDirection = false
 
+############
+# Functions
+############
+
 func _ready():
-	player1.startPositions.append(Vector2(-100, 0))
-	player1.startPositions.append(Vector2(-250, +150))
-	player1.startPositions.append(Vector2(-250, -150))
+	# Init players
+	#player1.startPositions.append(Vector2(-100, 0))
+	#player1.startPositions.append(Vector2(-250, +150))
+	#player1.startPositions.append(Vector2(-250, -150))
 		
-	player2.startPositions.append(Vector2(100, 0))
-	player2.startPositions.append(Vector2(250, +150))
-	player2.startPositions.append(Vector2(250, -150))
+	#player2.startPositions.append(Vector2(100, 0))
+	#player2.startPositions.append(Vector2(250, +150))
+	#player2.startPositions.append(Vector2(250, -150))
+	
+	player1.startPositions = matchParams.GetPlayerPosition(true)
+	player2.startPositions = matchParams.GetPlayerPosition(false)
 	
 	player1.SpawnButtons()
 	player2.SpawnButtons()
 	
+	currentPlayer = player1
 	
-	#currentTurnPlayer = player1
+	# Init match params
+	matchTimer.wait_time = matchParams.matchTime
+	matchTimer.start()
+	
+	turnTimer.wait_time = matchParams.turnTime
+	turnTimer.start()
+	
 	pass 
-	
+
 func _process(delta):
-	ProcessInput()
 	
+	# Timers
+	UpdateTimers()
+	CheckTurnTimer()
+	
+	# Player Input
+	ProcessInput()
 	if changeDirection:
 		currentPlayer.SetCurrentButton(movementDirection.angle())
 	
-	if matchTimer.time_left <= 0:
-		PassTurn()
-	
-	timeLabel.set_text(str(int(round(matchTimer.get_time_left()))))
-	timeBar.value = matchTimer.get_time_left()
-	
-	
-	
+	# Goal scoring
 	if ball.goalScored != 0:
 		if ball.goalScored == 1:
 			player1.score += 1
 		else:
 			player2.score += 1
-			
 		
-		#player1.ResetButtonPositions();
-		#player2.ResetButtonPositions();
-			
 		ball.goalScored = 0
 	pass
 
@@ -66,10 +80,10 @@ func PassTurn():
 		currentPlayer = player2
 	else:
 		currentPlayer = player1
-	matchTimer.start();
-	pass
 	
-
+	# Reset timer
+	turnTimer.start();
+	pass
 
 func ProcessInput():
 	var currentController = "controller"+currentPlayer.playerID
@@ -97,3 +111,12 @@ func ProcessInput():
 	
 	movementDirection.x = inputRight - inputLeft
 	movementDirection.y = inputUp - inputDown
+
+func UpdateTimers():
+	timeLabel.set_text(str(int(round(matchTimer.get_time_left()))))
+	timeBar.value = turnTimer.get_time_left()
+
+func CheckTurnTimer():
+	if turnTimer.time_left <= 0:
+		PassTurn()
+		turnTimer.start()

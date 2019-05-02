@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Field.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/MatchManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/black.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/MatchParameters.gd" type="Script" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0.831373, 1, 1 )
@@ -83,12 +84,18 @@ step = 0.05
 value = 5.0
 percent_visible = false
 
-[node name="MatchTimer" type="Timer" parent="MatchManager/HudManager/ScorePanel"]
+[node name="TurnTimer" type="Timer" parent="MatchManager/HudManager/ScorePanel"]
 wait_time = 10.0
 one_shot = true
-autostart = true
+
+[node name="MatchTimer" type="Timer" parent="MatchManager/HudManager/ScorePanel"]
+wait_time = 60.0
+one_shot = true
 
 [node name="Ball" parent="MatchManager" instance=ExtResource( 5 )]
+
+[node name="MatchParameters" type="Node" parent="MatchManager"]
+script = ExtResource( 6 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
