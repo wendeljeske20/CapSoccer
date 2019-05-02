@@ -6,8 +6,6 @@ var canScore = true
 # 1 for player 1 and 2 for player 2. 0 for none
 var goalScored = 0
 
-#const GoalClass = preload("Goal.gd")
-
 func _ready():
 	resetPosition()
 	pass 

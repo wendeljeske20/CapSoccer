@@ -5,12 +5,15 @@ onready var player1 = get_node("Player1")
 onready var player2 = get_node("Player2")
 onready var ball = get_node("Ball")
 onready var matchParams = get_node("MatchParameters")
+onready var matchWinnerPanel = get_node("MatchWinnerPanel")
 
 var currentPlayer = null
 
 # Timers
-onready var matchTimer = get_node("HudManager/ScorePanel/MatchTimer")
-onready var turnTimer = get_node("HudManager/ScorePanel/TurnTimer")
+onready var matchTimer = get_node("MatchTimer")
+onready var turnTimer = get_node("TurnTimer")
+
+# UI
 onready var timeLabel = get_node("HudManager/ScorePanel/TimeLabel")
 onready var timeBar = get_node("HudManager/ScorePanel/TurnTimeBar")
 
@@ -22,20 +25,19 @@ var inputDown = 0
 var movementDirection = Vector2()
 var changeDirection = false
 
+enum MATCH_END {
+	NULL = 0,
+	LEFT = 1,
+	RIGHT = 2,
+	TIE = 3
+}
+
 ############
 # Functions
 ############
 
 func _ready():
 	# Init players
-	#player1.startPositions.append(Vector2(-100, 0))
-	#player1.startPositions.append(Vector2(-250, +150))
-	#player1.startPositions.append(Vector2(-250, -150))
-		
-	#player2.startPositions.append(Vector2(100, 0))
-	#player2.startPositions.append(Vector2(250, +150))
-	#player2.startPositions.append(Vector2(250, -150))
-	
 	player1.startPositions = matchParams.GetPlayerPosition(true)
 	player2.startPositions = matchParams.GetPlayerPosition(false)
 	
@@ -65,13 +67,13 @@ func _process(delta):
 		currentPlayer.SetCurrentButton(movementDirection.angle())
 	
 	# Goal scoring
-	if ball.goalScored != 0:
-		if ball.goalScored == 1:
-			player1.score += 1
+	if(CheckGoal()):
+		var matchWinner = CheckMatchEndGoals()
+		if(matchWinner):
+			EndMatch(matchWinner)
 		else:
-			player2.score += 1
-		
-		ball.goalScored = 0
+			player1.ResetButtonPositions()
+			player2.ResetButtonPositions()
 	pass
 
 func PassTurn():
@@ -112,6 +114,17 @@ func ProcessInput():
 	movementDirection.x = inputRight - inputLeft
 	movementDirection.y = inputUp - inputDown
 
+func CheckGoal():
+	if ball.goalScored != 0:
+		if ball.goalScored == 1:
+			player1.score += 1
+		else:
+			player2.score += 1
+		
+		ball.goalScored = 0
+		return true
+	return false
+
 func UpdateTimers():
 	timeLabel.set_text(str(int(round(matchTimer.get_time_left()))))
 	timeBar.value = turnTimer.get_time_left()
@@ -120,3 +133,30 @@ func CheckTurnTimer():
 	if turnTimer.time_left <= 0:
 		PassTurn()
 		turnTimer.start()
+
+func CheckMatchEndGoals():
+	if(matchParams.useMaxGoals):
+		if(player1.score == matchParams.maxGoals):
+			return MATCH_END.LEFT
+		if(player2.score == matchParams.maxGoals):
+			return MATCH_END.RIGHT
+	return MATCH_END.NULL
+
+func CheckMatchEndTime():
+	var matchResult = MATCH_END.TIE
+	
+	if(player1.score > player2.score):
+		matchResult = MATCH_END.LEFT
+	elif(player1.score < player2.score):
+		matchResult = MATCH_END.RIGHT
+		
+	EndMatch(matchResult)
+
+func EndMatch(result):
+	matchWinnerPanel.show()
+	# TODO: Change for art instead of Godot label
+	matchWinnerPanel.get_child(0).text = "THE WINNER IS " + MATCH_END.keys()[result] + " SIDE!"
+
+# !SIGNAL WITH MATCHTIMER!
+func _on_MatchTimer_timeout():
+	CheckMatchEndTime()

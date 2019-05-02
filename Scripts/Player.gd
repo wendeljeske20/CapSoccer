@@ -6,18 +6,15 @@ var score = 0;
 
 var buttonPreload = preload("res://Scenes/Button.tscn")
 var buttons = []
+var currentButton = 0
 
 var startPositions = []
-
-var currentButton = 0
 
 func _ready():
 	pass 
 
 func _process(delta):
-	
 	scoreLabel.text = str(score)
-	
 	pass
 
 func SpawnButtons():
@@ -25,16 +22,19 @@ func SpawnButtons():
 		var button = buttonPreload.instance()
 		if playerID == "1":
 			button.paint = 1
+			
+		# Used to reset
+		button.spawnPosition = startPositions[i]
+		# Setting position manually to avoid visual bug
 		button.position = startPositions[i]
-		#button.rotation = -PI/2
+		
 		get_node("").add_child(button)
 		buttons.append(button)
 	pass
 
 func ResetButtonPositions():
 	for i in range(0, buttons.size()):
-		buttons[i].position = startPositions[i]
-		print(buttons[i].position)
+		buttons[i].Reset()
 	pass
 
 func SetCurrentButton(direction):
