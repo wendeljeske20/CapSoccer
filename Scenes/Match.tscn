@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Field.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/MatchManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Pause.tscn" type="PackedScene" id=3]
 
 [node name="Match" type="Node2D"]
 
@@ -11,4 +12,11 @@
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Pause" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = -188.253
+margin_top = -218.862
+margin_right = 188.747
+margin_bottom = 251.138
 

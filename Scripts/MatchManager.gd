@@ -16,6 +16,7 @@ onready var turnTimer = get_node("TurnTimer")
 # UI
 onready var timeLabel = get_node("HudManager/ScorePanel/TimeLabel")
 onready var timeBar = get_node("HudManager/ScorePanel/TurnTimeBar")
+onready var pausePanel = get_node("../Pause")
 
 # Input Section
 var inputRight = 0
@@ -88,6 +89,9 @@ func PassTurn():
 	pass
 
 func ProcessInput():
+	
+	
+		
 	var currentController = "controller"+currentPlayer.playerID
 	
 	inputRight = Input.get_action_strength(currentController+"_right")
@@ -108,12 +112,20 @@ func ProcessInput():
 		currentPlayer.CycleCurrentButton(1)
 	if(Input.is_action_just_pressed(currentController+"_a_button")):
 		currentPlayer.ShootButton()
-	if(Input.is_action_just_pressed(currentController+"_start_button")):
-		PassTurn()
-	
+	#if(Input.is_action_just_pressed(currentController+"_start_button")):
+		
 	movementDirection.x = inputRight - inputLeft
 	movementDirection.y = inputUp - inputDown
-
+	
+#pause the process function, physics, timers and the shootBar of current button
+func PauseMatch(pause):
+	set_process(!pause)
+	Physics2DServer.set_active(!pause)
+	matchTimer.paused = pause
+	turnTimer.paused = pause
+	var currentButtonIndex = currentPlayer.currentButton
+	currentPlayer.buttons[currentButtonIndex].set_process(!pause)
+	
 func CheckGoal():
 	if ball.goalScored != 0:
 		if ball.goalScored == 1:
