@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scripts/MatchManager.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/cap.jpg" type="Texture" id=3]
-[ext_resource path="res://Sprites/sodacap.jpg" type="Texture" id=4]
+[ext_resource path="res://Sprites/botao_tampinha.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/botao_tampinha_b.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/black.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/MatchParameters.gd" type="Script" id=7]
@@ -117,5 +117,4 @@ margin_right = 723.0
 margin_bottom = 209.0
 text = "WE HAVE A WINNER!!!"
 uppercase = true
-
 [connection signal="timeout" from="MatchTimer" to="." method="_on_MatchTimer_timeout"]
