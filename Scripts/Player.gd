@@ -1,12 +1,14 @@
 extends Node2D
 
 export(String) var playerID
+export(Texture) var sprite_texture
 onready var scoreLabel = get_node("../HudManager/ScorePanel/Player"+ playerID +"ScoreLabel")
 var score = 0;
 
 var buttonPreload = preload("res://Scenes/Button.tscn")
 var buttons = []
 var currentButton = 0
+
 
 var startPositions = []
 
@@ -20,13 +22,14 @@ func _process(delta):
 func SpawnButtons():
 	for i in range(0, startPositions.size()):
 		var button = buttonPreload.instance()
-		if playerID == "1":
-			button.paint = 1
+		
 			
 		# Used to reset
 		button.spawnPosition = startPositions[i]
 		# Setting position manually to avoid visual bug
 		button.position = startPositions[i]
+		#setting button sprites
+		button.SetTexture(sprite_texture)
 		
 		get_node("").add_child(button)
 		buttons.append(button)

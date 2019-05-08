@@ -9,17 +9,19 @@ var shootMax = 10
 var shootForce = 0
 var shootIncrease = 10
 
-var paint = 0;
 
 onready var shootBar = get_node("ShootStrength")
-onready var sprite = get_node("Sprite")
+onready var sprite 
+#= get_node("Sprite")
+
 
 var spawnPosition = Vector2(0,0)
 var shouldReset = false
 
 func _ready():
-	if paint == 1:
-		sprite.modulate = Color(1, 0, 0)
+	
+	#SetTexture(texture2)
+	pass
 
 func _process(delta):
 	if (isShooting):
@@ -36,6 +38,11 @@ func _process(delta):
 	if (isShooting):
 		shootBar.value = shootForce
 
+func SetTexture(texture):
+	sprite = get_node("Sprite")
+	sprite.set_texture(texture)
+	
+	
 func _integrate_forces(state):
 	rotation = m_angle
 	
