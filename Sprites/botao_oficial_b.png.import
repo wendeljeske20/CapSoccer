@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/botao_oficial_b.png-94224b2f0057f9490b9a5ffaa7e2c24f.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Sprites/botao_oficial_b.png"
+dest_files=[ "res://.import/botao_oficial_b.png-94224b2f0057f9490b9a5ffaa7e2c24f.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

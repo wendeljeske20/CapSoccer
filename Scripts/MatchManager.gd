@@ -3,7 +3,6 @@ extends Node2D
 # Game Objects
 onready var player1 = get_node("Player1")
 onready var player2 = get_node("Player2")
-onready var ball = get_node("Ball")
 onready var matchParams = get_node("MatchParameters")
 onready var matchWinnerPanel = get_node("MatchWinnerPanel")
 
@@ -54,6 +53,9 @@ func _ready():
 	turnTimer.wait_time = matchParams.turnTime
 	turnTimer.start()
 	
+	# Starting ball
+	get_node("BallManager").change_ball(load("res://Scenes/Balls/Ball-Official.tscn").instance())
+	
 	pass 
 
 func _process(delta):
@@ -90,8 +92,6 @@ func PassTurn():
 
 func ProcessInput():
 	
-	
-		
 	var currentController = "controller"+currentPlayer.playerID
 	
 	inputRight = Input.get_action_strength(currentController+"_right")
@@ -112,12 +112,11 @@ func ProcessInput():
 		currentPlayer.CycleCurrentButton(1)
 	if(Input.is_action_just_pressed(currentController+"_a_button")):
 		currentPlayer.ShootButton()
-	#if(Input.is_action_just_pressed(currentController+"_start_button")):
 		
 	movementDirection.x = inputRight - inputLeft
 	movementDirection.y = inputUp - inputDown
 	
-#pause the process function, physics, timers and the shootBar of current button
+# Pause the process function, physics, timers and the shootBar of current button
 func PauseMatch(pause):
 	set_process(!pause)
 	Physics2DServer.set_active(!pause)
@@ -127,6 +126,7 @@ func PauseMatch(pause):
 	currentPlayer.buttons[currentButtonIndex].set_process(!pause)
 	
 func CheckGoal():
+	var ball = get_node("Ball")
 	if ball.goalScored != 0:
 		if ball.goalScored == 1:
 			player1.score += 1

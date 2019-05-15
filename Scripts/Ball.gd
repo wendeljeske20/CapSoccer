@@ -6,12 +6,22 @@ var canScore = true
 # 1 for player 1 and 2 for player 2. 0 for none
 var goalScored = 0
 
+var spawnPos = null
+var spawnVel = null
+
 func _ready():
 	resetPosition()
 	pass 
 
 func _integrate_forces(state):
 	if shouldReset:
+		# Set to spawn pos if just created
+		if spawnPos != null:
+			state.transform.origin = spawnPos
+			state.linear_velocity = spawnVel
+			shouldReset = false
+			return
+			
 		# Reseting pos
 		state.transform.origin.x = 0
 		state.transform.origin.y = 0
@@ -52,4 +62,8 @@ func checkGoal(isLeftSide):
 
 func resetPosition():
 	shouldReset = true
-	pass
+
+func spawn(pos, lin_vel):
+	shouldReset = true
+	spawnPos = pos
+	spawnVel = lin_vel

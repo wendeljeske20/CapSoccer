@@ -14,6 +14,7 @@ func Resume():
 	
 func Pause():
 	show()
+	resumeButton.grab_focus()
 	matchManager.PauseMatch(true)
 
 func Quit():

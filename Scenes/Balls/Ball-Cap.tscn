@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Ball.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/bola_tampinha.png" type="Texture" id=2]
+
+[sub_resource type="PhysicsMaterial" id=3]
+rough = true
+bounce = 0.6
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 14.2462
+
+[node name="Ball" type="RigidBody2D"]
+mass = 2.0
+physics_material_override = SubResource( 3 )
+gravity_scale = 0.0
+contacts_reported = 10
+contact_monitor = true
+can_sleep = false
+linear_damp = 2.0
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
