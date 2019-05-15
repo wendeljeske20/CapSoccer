@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/MatchManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/MatchParameters.gd" type="Script" id=2]
@@ -9,9 +9,6 @@
 [ext_resource path="res://Sprites/botao_tampinha.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/botao_tampinha_b.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Balls/Ball-Cap.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Modifiers/Modifier-Cap.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Modifiers/Modifier-Official.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Modifiers/Modifier-Button.tscn" type="PackedScene" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0.831373, 1, 1 )
@@ -130,14 +127,5 @@ sprite_texture = ExtResource( 8 )
 
 [node name="Ball" parent="." instance=ExtResource( 9 )]
 physics_material_override = SubResource( 2 )
-
-[node name="Modifier-Cap" parent="." instance=ExtResource( 10 )]
-position = Vector2( -102.714, -89.9025 )
-
-[node name="Modifier-Official" parent="." instance=ExtResource( 11 )]
-position = Vector2( 2.53648, -126.187 )
-
-[node name="Modifier-Official2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 112.496, -76.5015 )
 
 [connection signal="timeout" from="MatchTimer" to="." method="_on_MatchTimer_timeout"]

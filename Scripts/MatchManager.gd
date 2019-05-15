@@ -45,6 +45,7 @@ func _ready():
 	player2.SpawnButtons()
 	
 	currentPlayer = player1
+	currentPlayer.SetButtonHightlight()
 	
 	# Init match params
 	matchTimer.wait_time = matchParams.matchTime
@@ -80,12 +81,13 @@ func _process(delta):
 	pass
 
 func PassTurn():
-	currentPlayer.ClearCurrentButtonShoot()
+	currentPlayer.ClearCurrentButton()
 	if currentPlayer == player1:
 		currentPlayer = player2
 	else:
 		currentPlayer = player1
 	
+	currentPlayer.SetButtonHightlight()
 	# Reset timer
 	turnTimer.start();
 	pass

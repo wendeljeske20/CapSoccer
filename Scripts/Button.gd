@@ -19,13 +19,15 @@ onready var audioGrass = get_node("AudioGrass")
 var spawnPosition = Vector2(0,0)
 var shouldReset = false
 
+var isCurrent = false
+var colorModulation = 0.0
+var colorModUp = false
+
 func _ready():
-	
-	#SetTexture(texture2)
-	pass
+	sprite = get_node("Sprite")
 
 func _process(delta):
-	if (isShooting):
+	if isShooting:
 		shootForce += shootIncrease * delta
 	
 	if(shootForce > shootMax):
@@ -36,8 +38,13 @@ func _process(delta):
 		shootForce = shootMin
 		shootIncrease *= -1
 	
-	if (isShooting):
+	if isShooting:
 		shootBar.value = shootForce
+	
+	if isCurrent:
+		ModulateColor(delta)
+	else:
+		sprite.modulate = Color(1, 1, 1, 1)
 
 func SetTexture(texture):
 	sprite = get_node("Sprite")
@@ -86,3 +93,18 @@ func Reset():
 # Collision audio
 func _on_Button_body_entered(body):
 	audioHit.play()
+
+func ModulateColor(delta):
+	if colorModUp:
+		colorModulation += delta
+	else:
+		colorModulation -= delta
+	
+	if colorModulation > 1.0:
+		colorModulation = 1.0
+		colorModUp = false
+	elif colorModulation < 0.0:
+		colorModulation = 0.0
+		colorModUp = true
+	
+	sprite.modulate = Color(1 - colorModulation, colorModulation, 1, 1)

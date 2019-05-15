@@ -45,16 +45,21 @@ func SetCurrentButton(direction):
 
 # Change between buttons
 func CycleCurrentButton(val):
-	ClearCurrentButtonShoot()
+	ClearCurrentButton()
 	currentButton += val
 	var buttonsQtd = buttons.size()
 	if(currentButton >= buttonsQtd):
 		currentButton -= buttonsQtd
 	elif(currentButton < 0):
 		currentButton += buttonsQtd
+	SetButtonHightlight()
+
+func SetButtonHightlight():
+	buttons[currentButton].isCurrent = true
 
 func ShootButton():
 	buttons[currentButton].Shoot()
 
-func ClearCurrentButtonShoot():
+func ClearCurrentButton():
 	buttons[currentButton].ClearShoot()
+	buttons[currentButton].isCurrent = false
