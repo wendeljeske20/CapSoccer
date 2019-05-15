@@ -11,9 +11,10 @@ var shootIncrease = 10
 
 
 onready var shootBar = get_node("ShootStrength")
-onready var sprite 
-#= get_node("Sprite")
+onready var sprite
 
+onready var audioHit = get_node("AudioHit")
+onready var audioGrass = get_node("AudioGrass")
 
 var spawnPosition = Vector2(0,0)
 var shouldReset = false
@@ -67,6 +68,10 @@ func Shoot():
 		isShooting = true
 		shootBar.visible = true
 	else:
+		# Grass audio
+		audioGrass.pitch_scale = lerp(0.75, 1.25, shootForce/shootMax) + rand_range(-0.03, 0.03)
+		audioGrass.play()
+		
 		apply_impulse(Vector2.ZERO, Vector2(cos(rotation), sin(rotation)) * speed * shootForce)
 		ClearShoot()
 
@@ -77,3 +82,7 @@ func ClearShoot():
 
 func Reset():
 	shouldReset = true
+
+# Collision audio
+func _on_Button_body_entered(body):
+	audioHit.play()

@@ -11,7 +11,7 @@ script = ExtResource( 1 )
 ballPath = "res://Scenes/Balls/Ball-Cap.tscn"
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 0, 0, 1 )
+modulate = Color( 1, 0.984314, 0, 1 )
 position = Vector2( 0.263519, -0.263519 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )

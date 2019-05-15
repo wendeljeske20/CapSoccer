@@ -132,12 +132,12 @@ sprite_texture = ExtResource( 8 )
 physics_material_override = SubResource( 2 )
 
 [node name="Modifier-Cap" parent="." instance=ExtResource( 10 )]
-position = Vector2( 92.7686, -71.9832 )
+position = Vector2( -102.714, -89.9025 )
 
 [node name="Modifier-Official" parent="." instance=ExtResource( 11 )]
-position = Vector2( 96.2053, 66.8525 )
+position = Vector2( 2.53648, -126.187 )
 
 [node name="Modifier-Official2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 171.955, 0.877075 )
+position = Vector2( 112.496, -76.5015 )
 
 [connection signal="timeout" from="MatchTimer" to="." method="_on_MatchTimer_timeout"]

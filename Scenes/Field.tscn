@@ -14,6 +14,8 @@ extents = Vector2( 108.569, 10 )
 [node name="Field" type="Node2D"]
 
 [node name="Field" type="RigidBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 0.307343, 0 )
 mode = 1
 can_sleep = false
 
@@ -30,7 +32,7 @@ position = Vector2( 0, 293.868 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Field"]
-position = Vector2( 489.804, 195.053 )
+position = Vector2( 489.804, 196.59 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
@@ -45,7 +47,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Field"]
-position = Vector2( -489.668, -195.097 )
+position = Vector2( -489.668, -196.941 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
@@ -76,3 +78,4 @@ isLeftSide = true
 [node name="GoalRight" parent="." instance=ExtResource( 2 )]
 position = Vector2( 502.998, 0 )
 rotation = 3.14159
+

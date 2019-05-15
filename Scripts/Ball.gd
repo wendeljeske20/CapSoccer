@@ -9,6 +9,8 @@ var goalScored = 0
 var spawnPos = null
 var spawnVel = null
 
+onready var audio = get_node("Audio")
+
 func _ready():
 	resetPosition()
 	pass 
@@ -44,11 +46,13 @@ func _integrate_forces(state):
 	pass
 
 func checkCollisions(collidingBodies):
-	for i in collidingBodies.size():
-		# Checking if it's a goal. Pretty ugly way, but works. *shrug*
-		if "isLeftSide" in collidingBodies[i].get_node(""):
-			checkGoal(collidingBodies[i].get_node("").isLeftSide)
-	pass
+	if(collidingBodies.size()>0):
+		audio.pitch_scale = rand_range(0.95, 1.05)
+		audio.play()
+		for i in collidingBodies.size():
+			# Checking if it's a goal. Pretty ugly way, but works. *shrug*
+			if "isLeftSide" in collidingBodies[i].get_node(""):
+				checkGoal(collidingBodies[i].get_node("").isLeftSide)
 
 func checkGoal(isLeftSide):
 	if(canScore):

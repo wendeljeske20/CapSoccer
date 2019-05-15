@@ -5,7 +5,7 @@ onready var ball_button = load("res://Scenes/Balls/Ball-Button.tscn").instance()
 onready var ball_official = load("res://Scenes/Balls/Ball-Official.tscn").instance()
 
 func change_ball(ball):
-	print("Change ball!")
+	print("BALL MODIFIER!")
 	var parent = get_parent()
 	var old_ball = parent.get_node("Ball")
 	var pos = old_ball.position

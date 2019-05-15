@@ -1,24 +1,27 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/GoalSetter.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/goal.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Goal.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/GoalSound.gd" type="Script" id=2]
+[ext_resource path="res://Audios/goal.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sprites/goal.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Goal.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.6235
 height = 55.9211
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 81.4408 )
+extents = Vector2( 9.44884, 79.7175 )
 
 [node name="Goal" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Crossbar" type="RigidBody2D" parent="."]
-mode = 1
+mode = 3
 contacts_reported = 10
 contact_monitor = true
 can_sleep = false
+script = ExtResource( 2 )
 
 [node name="TopBar" type="CollisionShape2D" parent="Crossbar"]
 position = Vector2( 0, -84.397 )
@@ -29,19 +32,25 @@ shape = SubResource( 1 )
 position = Vector2( 0, 82.7733 )
 rotation = 1.5708
 shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="Audio" type="AudioStreamPlayer" parent="Crossbar"]
+stream = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = -1.57079
 scale = Vector2( 0.317458, 0.317458 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="GoalCollider" type="RigidBody2D" parent="."]
 position = Vector2( 7.11779, 0 )
 mode = 1
 contacts_reported = 10
 contact_monitor = true
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalCollider"]
+position = Vector2( 0, -0.944557 )
 shape = SubResource( 2 )
 
+[connection signal="body_entered" from="Crossbar" to="Crossbar" method="_on_Crossbar_body_entered"]
