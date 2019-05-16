@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Modifiers/BallModifier.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/bola_botao_oficial.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=1]
 radius = 39.0358
 
 [sub_resource type="Gradient" id=2]
@@ -46,7 +46,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 7 )
+shape = SubResource( 1 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 amount = 30
