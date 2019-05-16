@@ -19,6 +19,13 @@ config/name="CapSoccer"
 run/main_scene="res://Scenes/Match.tscn"
 config/icon="res://Sprites/icon.png"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [input]
 
 controller1_right={

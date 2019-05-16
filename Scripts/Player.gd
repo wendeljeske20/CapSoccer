@@ -56,6 +56,7 @@ func CycleCurrentButton(val):
 
 func SetButtonHightlight():
 	buttons[currentButton].isCurrent = true
+	buttons[currentButton].colorSet = false
 
 func ShootButton():
 	buttons[currentButton].Shoot()

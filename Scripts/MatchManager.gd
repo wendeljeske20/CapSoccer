@@ -78,6 +78,7 @@ func _process(delta):
 		else:
 			player1.ResetButtonPositions()
 			player2.ResetButtonPositions()
+			PassTurn()
 	pass
 
 func PassTurn():

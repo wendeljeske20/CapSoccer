@@ -5,7 +5,7 @@ var m_angle = 0
 var isShooting = false
 
 var shootMin = 0
-var shootMax = 10
+var shootMax = 15
 var shootForce = 0
 var shootIncrease = 10
 
@@ -22,6 +22,7 @@ var shouldReset = false
 var isCurrent = false
 var colorModulation = 0.0
 var colorModUp = false
+var colorSet = false
 
 func _ready():
 	sprite = get_node("Sprite")
@@ -39,12 +40,13 @@ func _process(delta):
 		shootIncrease *= -1
 	
 	if isShooting:
-		shootBar.value = shootForce
+		shootBar.value = shootForce/shootMax*10.0
 	
 	if isCurrent:
 		ModulateColor(delta)
-	else:
+	elif !colorSet:
 		sprite.modulate = Color(1, 1, 1, 1)
+		colorSet = true
 
 func SetTexture(texture):
 	sprite = get_node("Sprite")

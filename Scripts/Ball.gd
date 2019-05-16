@@ -22,6 +22,7 @@ func _integrate_forces(state):
 			state.transform.origin = spawnPos
 			state.linear_velocity = spawnVel
 			shouldReset = false
+			spawnPos = null
 			return
 			
 		# Reseting pos

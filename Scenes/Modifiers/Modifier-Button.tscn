@@ -50,5 +50,6 @@ shape = SubResource( 1 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 amount = 30
+fract_delta = false
 process_material = SubResource( 6 )
 
