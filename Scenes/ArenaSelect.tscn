@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="ArenaSelect" type="Panel"]
+margin_right = 1024.0
+margin_bottom = 600.0
+

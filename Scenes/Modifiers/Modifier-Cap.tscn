@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Modifiers/BallModifier.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/bola_tampinha.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 39.0358
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.898438, 1, 0, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -2.32254, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+render_priority = 1
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 103.0
+initial_velocity_random = 0.1
+angular_velocity = 291.7
+angular_velocity_random = 0.3
+orbit_velocity = 0.7
+orbit_velocity_random = 0.0
+scale = 5.5
+scale_random = 0.16
+scale_curve = SubResource( 5 )
+color_ramp = SubResource( 3 )
+
+[node name="Modifier-Cap" type="Area2D"]
+script = ExtResource( 1 )
+ballPath = "res://Scenes/Balls/Ball-Cap.tscn"
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 0.984314, 0, 1 )
+position = Vector2( 0.263519, -0.263519 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 30
+fract_delta = false
+process_material = SubResource( 6 )
+
