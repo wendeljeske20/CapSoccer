@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Shaders/OverlayShader.shader" type="Shader" id=1]
+[ext_resource path="res://Texture/texture1.png" type="Texture" id=2]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/dispAmt = 0.002
+shader_param/dispScale = 1.0
+shader_param/abberationAmt = 0.001
+shader_param/timeLine = 0.0
+shader_param/displace = ExtResource( 2 )
+
+[node name="OverlayShader" type="Control"]
+margin_left = -613.0
+margin_top = -346.0
+margin_right = 613.0
+margin_bottom = 346.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 113, 1016 )
+__meta__ = {
+"_edit_group_": true
+}
+

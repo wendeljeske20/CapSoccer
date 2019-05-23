@@ -47,10 +47,10 @@ script = ExtResource( 3 )
 script = ExtResource( 4 )
 
 [node name="HudManager" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="ScorePanel" type="Sprite" parent="HudManager"]
-position = Vector2( 0, -260 )
+editor/display_folded = true
+position = Vector2( 0, -347.064 )
 texture = ExtResource( 5 )
 
 [node name="TimeLabel" type="Label" parent="HudManager/ScorePanel"]
