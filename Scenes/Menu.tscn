@@ -13,12 +13,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -200.0
-margin_top = -80.0
-margin_right = 200.0
-margin_bottom = 80.0
+margin_left = -206.03
+margin_top = -78.4927
+margin_right = 193.97
+margin_bottom = 81.5073
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 custom_fonts/font = ExtResource( 2 )
 text = "Jogar"
 
-[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
