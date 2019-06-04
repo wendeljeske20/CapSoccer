@@ -2,10 +2,12 @@ extends Panel
 
 onready var matchManager = get_node("../MatchManager")
 onready var resumeButton = get_node("ResumeButton")
+onready var arenaSelectButton = get_node("ArenaSelectButton")
 onready var quitButton = get_node("QuitButton")
 
 func _ready():
 	quitButton.connect("pressed",self,"Quit")
+	arenaSelectButton.connect("pressed",self,"ArenaSelect")
 	resumeButton.connect("pressed",self,"Resume")
 
 func Resume():
@@ -17,6 +19,11 @@ func Pause():
 	resumeButton.grab_focus()
 	matchManager.PauseMatch(true)
 
+func ArenaSelect():
+	matchManager.PauseMatch(false) # precisa despausar para não bugar
+	get_tree().change_scene("Scenes/ArenaSelect.tscn")
+	
+	
 func Quit():
 	Resume()
 	get_tree().change_scene("Scenes/Menu.tscn")

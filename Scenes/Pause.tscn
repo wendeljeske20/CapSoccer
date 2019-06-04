@@ -35,7 +35,7 @@ margin_right = 297.545
 margin_bottom = 252.233
 ticks_on_borders = true
 
-[node name="ArenaSelectionButton" type="Button" parent="."]
+[node name="ArenaSelectButton" type="Button" parent="."]
 margin_left = 45.0
 margin_top = 267.257
 margin_right = 335.0
