@@ -1,19 +1,24 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/botao_costura.png" type="Texture" id=2]
-[ext_resource path="res://Audios/goal.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Audios/grass.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Sprites/seta_grande.png" type="Texture" id=3]
+[ext_resource path="res://Audios/goal.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Audios/grass.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Sprites/seta_pequena.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 45.904
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.94902, 0.352941, 0.352941, 1 )
-corner_detail = 1
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 81, 72 )
+axis_stretch_horizontal = 1
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.772549, 0.772549, 0.772549, 1 )
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 81, 72 )
+modulate_color = Color( 0, 0, 0, 1 )
 
 [node name="Button" type="RigidBody2D"]
 rotation = 1.5708
@@ -40,27 +45,31 @@ visible = false
 light_mask = 2
 anchor_right = 0.17
 anchor_bottom = 1.0
-margin_left = -80.0
-margin_top = 69.1362
-margin_right = 14.3871
-margin_bottom = 91.1362
-rect_scale = Vector2( 1.69134, 0.998749 )
+margin_left = 48.6023
+margin_top = -25.309
+margin_right = 129.602
+margin_bottom = 24.691
 custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 max_value = 10.0
 step = 0.5
-value = 4.0
+value = 7.5
 percent_visible = false
 
 [node name="AudioHit" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = 4.177
 pitch_scale = 1.1
 
 [node name="AudioGrass" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = -5.0
 attenuation = 13.4543
+
+[node name="ArrowSprite" type="Sprite" parent="."]
+position = Vector2( 59.87, 0 )
+texture = ExtResource( 6 )
 
 [connection signal="body_entered" from="." to="." method="_on_Button_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_Button_body_shape_entered"]

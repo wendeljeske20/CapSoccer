@@ -12,6 +12,7 @@ var shootIncrease = 10
 
 onready var shootBar = get_node("ShootStrength")
 onready var sprite
+onready var arrowSprite = get_node("ArrowSprite")
 
 onready var audioHit = get_node("AudioHit")
 onready var audioGrass = get_node("AudioGrass")
@@ -29,6 +30,7 @@ func _ready():
 
 func _process(delta):
 	if isShooting:
+		
 		shootForce += shootIncrease * delta
 	
 	if(shootForce > shootMax):
@@ -40,11 +42,19 @@ func _process(delta):
 		shootIncrease *= -1
 	
 	if isShooting:
+		
 		shootBar.value = shootForce/shootMax*10.0
 	
+	if isCurrent && !isShooting:
+		arrowSprite.visible = true;
+	elif !isCurrent || isShooting:
+		arrowSprite.visible = false;
+		
 	if isCurrent:
 		ModulateColor(delta)
+		
 	elif !colorSet:
+		
 		sprite.modulate = Color(1, 1, 1, 1)
 		colorSet = true
 
