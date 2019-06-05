@@ -1,53 +1,91 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Pause.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/dynamicFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Sprites/ui_base.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
+[ext_resource path="res://ButtonTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Fonts/dynamicFont.tres" type="DynamicFont" id=4]
 
 [sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 380, 363 )
 
 [node name="Pause" type="Panel"]
-margin_left = 324.0
-margin_top = 37.0
-margin_right = 701.0
-margin_bottom = 507.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -249.0
+margin_top = -288.0
+margin_right = 249.0
+margin_bottom = 288.0
 custom_styles/panel = SubResource( 1 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="ResumeButton" type="Button" parent="."]
-margin_left = 45.0
-margin_top = 93.544
-margin_right = 335.0
-margin_bottom = 150.544
-custom_fonts/font = ExtResource( 2 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = -201.874
+margin_right = 145.0
+margin_bottom = -144.874
+rect_pivot_offset = Vector2( 214, 214.456 )
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Retomar Partida"
 
 [node name="SoundEffectsVolumeSlider" type="HSlider" parent="."]
-margin_left = 68.545
-margin_top = 174.973
-margin_right = 297.545
-margin_bottom = 208.973
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -114.5
+margin_top = -85.1809
+margin_right = 114.5
+margin_bottom = -51.1809
+rect_pivot_offset = Vector2( 190.455, 133.027 )
+theme = ExtResource( 3 )
 ticks_on_borders = true
 
 [node name="MusicVolumeSlider" type="HSlider" parent="."]
-margin_left = 68.545
-margin_top = 218.233
-margin_right = 297.545
-margin_bottom = 252.233
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -114.5
+margin_top = -17.0
+margin_right = 114.5
+margin_bottom = 17.0
+rect_pivot_offset = Vector2( 190.455, 89.767 )
+theme = ExtResource( 3 )
 ticks_on_borders = true
 
 [node name="ArenaSelectButton" type="Button" parent="."]
-margin_left = 45.0
-margin_top = 267.257
-margin_right = 335.0
-margin_bottom = 324.257
-custom_fonts/font = ExtResource( 2 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = 74.7455
+margin_right = 145.0
+margin_bottom = 131.745
+rect_pivot_offset = Vector2( 214, 40.743 )
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Seleção de Arenas"
 
 [node name="QuitButton" type="Button" parent="."]
-margin_left = 45.0
-margin_top = 344.0
-margin_right = 335.0
-margin_bottom = 401.0
-custom_fonts/font = ExtResource( 2 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = 170.199
+margin_right = 145.0
+margin_bottom = 227.199
+rect_pivot_offset = Vector2( 214, -36 )
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Voltar ao Menu"
 

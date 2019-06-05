@@ -1,14 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/MatchManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/MatchParameters.gd" type="Script" id=2]
-[ext_resource path="res://Scripts/ModifiersManager.gd" type="Script" id=3]
-[ext_resource path="res://Scripts/BallManager.gd" type="Script" id=4]
-[ext_resource path="res://Sprites/black.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/botao_tampinha.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/botao_tampinha_b.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/Balls/Ball-Cap.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/BallManager.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/black.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/botao_tampinha.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/botao_tampinha_b.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Balls/Ball-Cap.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0.831373, 1, 1 )
@@ -40,18 +39,15 @@ one_shot = true
 wait_time = 10.0
 one_shot = true
 
-[node name="ModifiersManager" type="Node" parent="."]
-script = ExtResource( 3 )
-
 [node name="BallManager" type="Node" parent="."]
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="HudManager" type="Node2D" parent="."]
 
 [node name="ScorePanel" type="Sprite" parent="HudManager"]
 editor/display_folded = true
 position = Vector2( 0, -347.064 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 
 [node name="TimeLabel" type="Label" parent="HudManager/ScorePanel"]
 anchor_right = 0.5
@@ -116,16 +112,16 @@ margin_bottom = 209.0
 text = "WE HAVE A WINNER!!!"
 uppercase = true
 
-[node name="Player1" parent="." instance=ExtResource( 6 )]
+[node name="Player1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 0, -1 )
 playerID = "1"
+sprite_texture = ExtResource( 6 )
+
+[node name="Player2" parent="." instance=ExtResource( 5 )]
+playerID = "2"
 sprite_texture = ExtResource( 7 )
 
-[node name="Player2" parent="." instance=ExtResource( 6 )]
-playerID = "2"
-sprite_texture = ExtResource( 8 )
-
-[node name="Ball" parent="." instance=ExtResource( 9 )]
+[node name="Ball" parent="." instance=ExtResource( 8 )]
 physics_material_override = SubResource( 2 )
 
 [connection signal="timeout" from="MatchTimer" to="." method="_on_MatchTimer_timeout"]

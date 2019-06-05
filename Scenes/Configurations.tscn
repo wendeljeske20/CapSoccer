@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/Configurations.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/dynamicFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Sprites/background.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Configurations.gd" type="Script" id=2]
+[ext_resource path="res://ButtonTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Fonts/dynamicFont.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 3840, 2160 )
 
 [node name="Configurations" type="Panel"]
 margin_right = 1920.0
 margin_bottom = 1080.0
-script = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
 
 [node name="BackButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -18,6 +25,25 @@ margin_top = 337.655
 margin_right = -592.434
 margin_bottom = 457.655
 rect_pivot_offset = Vector2( 0.5, 0.5 )
-custom_fonts/font = ExtResource( 2 )
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 text = "Voltar"
+
+[node name="Slider-Music" type="HSlider" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -500.0
+margin_top = 268.105
+margin_right = 500.0
+margin_bottom = 385.105
+ticks_on_borders = true
+
+[node name="Slider-Audio" type="HSlider" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -500.0
+margin_top = 496.845
+margin_right = 500.0
+margin_bottom = 512.845
+ticks_on_borders = true
 

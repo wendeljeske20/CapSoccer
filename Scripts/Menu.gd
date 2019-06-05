@@ -15,6 +15,8 @@ func _ready():
 	#creditsButton.grab_focus()
 	quitButton.connect("pressed",self,"Quit")
 	quitButton.grab_focus()
+	#Não entendi o que tava acontecendo antes então só dei o focus aqui
+	startButton.grab_focus()
 	
 func Play():
 	get_tree().change_scene("Scenes/ArenaSelect.tscn")
