@@ -3,7 +3,6 @@ extends Node2D
 # Game Objects
 onready var player1 = get_node("Player1")
 onready var player2 = get_node("Player2")
-onready var matchParams = get_node("MatchParameters")
 onready var matchWinnerPanel = get_node("MatchWinnerPanel")
 
 var currentPlayer = null
@@ -38,8 +37,8 @@ enum MATCH_END {
 
 func _ready():
 	# Init players
-	player1.startPositions = matchParams.GetPlayerPosition(true)
-	player2.startPositions = matchParams.GetPlayerPosition(false)
+	player1.startPositions = MatchParameters.GetPlayerPosition(true)
+	player2.startPositions = MatchParameters.GetPlayerPosition(false)
 	
 	player1.SpawnButtons()
 	player2.SpawnButtons()
@@ -48,10 +47,10 @@ func _ready():
 	currentPlayer.SetButtonHightlight()
 	
 	# Init match params
-	matchTimer.wait_time = matchParams.matchTime
+	matchTimer.wait_time = MatchParameters.matchTime
 	matchTimer.start()
 	
-	turnTimer.wait_time = matchParams.turnTime
+	turnTimer.wait_time = MatchParameters.turnTime
 	turnTimer.start()
 	
 	# Starting ball
@@ -150,10 +149,10 @@ func CheckTurnTimer():
 		turnTimer.start()
 
 func CheckMatchEndGoals():
-	if(matchParams.useMaxGoals):
-		if(player1.score == matchParams.maxGoals):
+	if(MatchParameters.useMaxGoals):
+		if(player1.score == MatchParameters.maxGoals):
 			return MATCH_END.LEFT
-		if(player2.score == matchParams.maxGoals):
+		if(player2.score == MatchParameters.maxGoals):
 			return MATCH_END.RIGHT
 	return MATCH_END.NULL
 

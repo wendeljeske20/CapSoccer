@@ -4,9 +4,9 @@
 [ext_resource path="res://Sprites/mesa_1.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/ui_base.png" type="Texture" id=3]
 [ext_resource path="res://ButtonTheme.tres" type="Theme" id=4]
-[ext_resource path="res://Fonts/dynamicFont.tres" type="DynamicFont" id=5]
-[ext_resource path="res://default_theme.tres" type="Theme" id=6]
-[ext_resource path="res://ButtonArrowTheme.tres" type="Theme" id=7]
+[ext_resource path="res://default_theme.tres" type="Theme" id=5]
+[ext_resource path="res://ButtonArrowTheme.tres" type="Theme" id=6]
+[ext_resource path="res://Scenes/OverlayShader.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Theme" id=1]
 
@@ -46,83 +46,66 @@ margin_bottom = 377.013
 rect_scale = Vector2( 1.18347, 1.18347 )
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 theme = ExtResource( 4 )
-custom_fonts/font = ExtResource( 5 )
 text = "Jogar"
 
 [node name="ArenaLabel" type="Label" parent="Panel"]
 margin_top = 50.0
 margin_right = 647.0
 margin_bottom = 123.0
-custom_fonts/font = ExtResource( 5 )
+theme = ExtResource( 5 )
 text = "Configuração de Arena"
 align = 1
 valign = 1
-
-[node name="ArenaLeftButton" type="Button" parent="Panel"]
-visible = false
-margin_left = 180.0
-margin_top = 60.1584
-margin_right = 220.0
-margin_bottom = 103.158
-theme = ExtResource( 6 )
-
-[node name="ArenaRightButton" type="Button" parent="Panel"]
-visible = false
-margin_left = 450.0
-margin_top = 60.1584
-margin_right = 490.0
-margin_bottom = 103.158
-theme = ExtResource( 6 )
 
 [node name="PlayersAmountLabel" type="Label" parent="Panel"]
 margin_left = 120.0
 margin_top = 169.837
 margin_right = 345.0
 margin_bottom = 242.837
-custom_fonts/font = ExtResource( 5 )
+theme = ExtResource( 5 )
 text = "Número de 
 jogadores"
 
 [node name="PlayersAmount" type="Label" parent="Panel"]
-margin_left = 400.539
+margin_left = 402.539
 margin_top = 179.516
-margin_right = 459.539
-margin_bottom = 219.516
-theme = ExtResource( 6 )
+margin_right = 461.539
+margin_bottom = 224.516
+theme = ExtResource( 5 )
 text = "3"
 align = 1
 valign = 2
 
 [node name="PlayersAmountLeftButton" type="Button" parent="Panel"]
 margin_left = 393.619
-margin_top = 179.516
+margin_top = 178.781
 margin_right = 433.619
-margin_bottom = 222.516
+margin_bottom = 221.781
 rect_scale = Vector2( -1, 1 )
-theme = ExtResource( 7 )
+theme = ExtResource( 6 )
 
 [node name="PlayersAmountRightButton" type="Button" parent="Panel"]
 margin_left = 470.0
-margin_top = 179.837
+margin_top = 178.837
 margin_right = 510.0
-margin_bottom = 222.837
-theme = ExtResource( 7 )
+margin_bottom = 221.837
+theme = ExtResource( 6 )
 
 [node name="MatchTimeLabel" type="Label" parent="Panel"]
 margin_left = 120.0
 margin_top = 269.837
 margin_right = 345.0
 margin_bottom = 342.837
-custom_fonts/font = ExtResource( 5 )
+theme = ExtResource( 5 )
 text = "Tempo da
 partida"
 
 [node name="MatchTime" type="Label" parent="Panel"]
-margin_left = 400.461
+margin_left = 397.461
 margin_top = 279.837
-margin_right = 461.461
-margin_bottom = 319.837
-theme = ExtResource( 6 )
+margin_right = 467.461
+margin_bottom = 324.837
+theme = ExtResource( 5 )
 text = "5:00"
 align = 1
 valign = 2
@@ -133,46 +116,53 @@ margin_top = 279.837
 margin_right = 433.619
 margin_bottom = 322.837
 rect_scale = Vector2( -1, 1 )
-theme = ExtResource( 7 )
+theme = ExtResource( 6 )
 
 [node name="MatchTimeRightButton" type="Button" parent="Panel"]
 margin_left = 470.461
 margin_top = 279.837
 margin_right = 510.461
 margin_bottom = 322.837
-theme = ExtResource( 7 )
+theme = ExtResource( 6 )
 
 [node name="TurnTimeLabel" type="Label" parent="Panel"]
 margin_left = 120.0
 margin_top = 369.837
 margin_right = 345.0
 margin_bottom = 442.837
-custom_fonts/font = ExtResource( 5 )
+theme = ExtResource( 5 )
 text = "Tempo do
 turno"
 
 [node name="TurnTime" type="Label" parent="Panel"]
-margin_left = 400.539
+margin_left = 402.539
 margin_top = 380.516
-margin_right = 459.539
-margin_bottom = 420.516
-theme = ExtResource( 6 )
+margin_right = 461.539
+margin_bottom = 425.516
+theme = ExtResource( 5 )
 text = "10"
 align = 1
 valign = 2
 
 [node name="TurnTimeLeftButton" type="Button" parent="Panel"]
 margin_left = 393.158
-margin_top = 379.837
+margin_top = 379.545
 margin_right = 433.158
-margin_bottom = 422.837
+margin_bottom = 422.545
 rect_scale = Vector2( -1, 1 )
-theme = ExtResource( 7 )
+theme = ExtResource( 6 )
 
 [node name="TurnTimeRightButton" type="Button" parent="Panel"]
 margin_left = 470.0
-margin_top = 380.516
+margin_top = 379.224
 margin_right = 510.0
-margin_bottom = 423.516
-theme = ExtResource( 7 )
+margin_bottom = 422.224
+theme = ExtResource( 6 )
+
+[node name="OverlayShader" parent="." instance=ExtResource( 7 )]
+margin_left = -557.349
+margin_top = -308.899
+margin_right = 668.651
+margin_bottom = 383.101
+rect_scale = Vector2( 2.21, 2.00185 )
 

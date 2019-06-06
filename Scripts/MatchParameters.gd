@@ -5,7 +5,7 @@ export(int) var turnTime = 10
 
 # Game end rules
 # Match time
-export(int) var matchTime = 60
+export(int) var matchTime = 180
 export(int) var maxGoals = 5
 export(bool) var useMaxGoals = false
 

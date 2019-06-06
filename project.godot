@@ -19,6 +19,10 @@ config/name="CapSoccer"
 run/main_scene="res://Scenes/Menu.tscn"
 config/icon="res://Sprites/icon.png"
 
+[autoload]
+
+MatchParameters="*res://Scripts/MatchParameters.gd"
+
 [display]
 
 window/size/width=1920

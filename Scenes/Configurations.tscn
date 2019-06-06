@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/background.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Configurations.gd" type="Script" id=2]
 [ext_resource path="res://ButtonTheme.tres" type="Theme" id=3]
 [ext_resource path="res://Fonts/dynamicFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/OverlayShader.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -46,4 +47,11 @@ margin_top = 496.845
 margin_right = 500.0
 margin_bottom = 512.845
 ticks_on_borders = true
+
+[node name="OverlayShader" parent="." instance=ExtResource( 5 )]
+margin_left = -6.03729
+margin_top = -5.60873
+margin_right = 1219.96
+margin_bottom = 686.391
+rect_scale = Vector2( 1.57918, 1.58117 )
 
