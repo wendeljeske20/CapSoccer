@@ -9,7 +9,7 @@ var currentPlayer = null
 
 # Timers
 onready var matchTimer = get_node("MatchTimer")
-onready var turnTimer = get_node("TurnTimer")
+onready var turnTimer : Timer = get_node("TurnTimer")
 
 # UI
 onready var timeLabel = get_node("HudManager/ScorePanel/TimeLabel")
@@ -169,7 +169,10 @@ func CheckMatchEndTime():
 func EndMatch(result):
 	matchWinnerPanel.show()
 	# TODO: Change for art instead of Godot label
-	matchWinnerPanel.get_child(0).text = "THE WINNER IS " + MATCH_END.keys()[result] + " SIDE!"
+	#matchWinnerPanel.get_child(0).text = "THE WINNER IS " + MATCH_END.keys()[result] + " SIDE!"
+	
+	##CHAMA AQUI
+	get_tree().change_scene("Scenes/MatchEnd.tscn")
 
 # !SIGNAL WITH MATCHTIMER!
 func _on_MatchTimer_timeout():
