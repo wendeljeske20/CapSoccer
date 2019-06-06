@@ -1,22 +1,23 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/botao_costura.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/seta_grande.png" type="Texture" id=3]
-[ext_resource path="res://Audios/goal.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Audios/grass.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Sprites/seta_pequena.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/borda.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/seta_grande.png" type="Texture" id=4]
+[ext_resource path="res://Audios/goal.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Audios/grass.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sprites/seta_pequena.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 45.904
 
 [sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 81, 72 )
 axis_stretch_horizontal = 1
 
 [sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 81, 72 )
 modulate_color = Color( 0, 0, 0, 1 )
 
@@ -35,6 +36,11 @@ script = ExtResource( 1 )
 rotation = 1.5708
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 2 )
+
+[node name="OutlineSprite" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -58,18 +64,18 @@ value = 7.5
 percent_visible = false
 
 [node name="AudioHit" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = 4.177
 pitch_scale = 1.1
 
 [node name="AudioGrass" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = -5.0
 attenuation = 13.4543
 
 [node name="ArrowSprite" type="Sprite" parent="."]
 position = Vector2( 59.87, 0 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [connection signal="body_entered" from="." to="." method="_on_Button_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_Button_body_shape_entered"]

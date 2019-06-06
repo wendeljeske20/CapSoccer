@@ -13,6 +13,7 @@ var shootIncrease = 10
 onready var shootBar = get_node("ShootStrength")
 onready var sprite
 onready var arrowSprite = get_node("ArrowSprite")
+onready var outlineSprite = get_node("Sprite/OutlineSprite")
 
 onready var audioHit = get_node("AudioHit")
 onready var audioGrass = get_node("AudioGrass")
@@ -52,9 +53,9 @@ func _process(delta):
 		
 	if isCurrent:
 		ModulateColor(delta)
-		
+		outlineSprite.visible = true
 	elif !colorSet:
-		
+		outlineSprite.visible = false
 		sprite.modulate = Color(1, 1, 1, 1)
 		colorSet = true
 
@@ -108,15 +109,15 @@ func _on_Button_body_entered(body):
 
 func ModulateColor(delta):
 	if colorModUp:
-		colorModulation += delta
+		colorModulation += delta * 1.5
 	else:
-		colorModulation -= delta
+		colorModulation -= delta * 1.5
 	
 	if colorModulation > 1.0:
 		colorModulation = 1.0
 		colorModUp = false
-	elif colorModulation < 0.0:
-		colorModulation = 0.0
+	elif colorModulation < 0.1:
+		colorModulation = 0.1
 		colorModUp = true
-	
-	sprite.modulate = Color(1 - colorModulation, colorModulation, 1, 1)
+
+	outlineSprite.modulate = Color(1, 1, 1, colorModulation)
