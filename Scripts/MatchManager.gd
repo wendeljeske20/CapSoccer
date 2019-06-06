@@ -164,7 +164,8 @@ func CheckMatchEndTime():
 		matchResult = MATCH_END.LEFT
 	elif(player1.score < player2.score):
 		matchResult = MATCH_END.RIGHT
-		
+	
+	MatchParameters.winner = matchResult
 	EndMatch(matchResult)
 
 func EndMatch(result):

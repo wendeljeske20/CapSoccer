@@ -1,10 +1,9 @@
 extends Node
 
-export(int) var aaa = 10
-
 onready var restartButton = get_node("RestartButton")
 onready var arenaSelectButton = get_node("ArenaSelectButton")
 onready var menuButton = get_node("MenuButton")
+onready var winnerLabel = get_node("WinnerLabel")
 
 func _ready():
 	restartButton.connect("pressed",self,"Restart")
@@ -13,6 +12,13 @@ func _ready():
 	arenaSelectButton.grab_focus()
 	menuButton.connect("pressed",self,"Menu")
 	menuButton.grab_focus()
+	
+	if(MatchParameters.winner == 3):
+		winnerLabel.text = "Empate!"
+	elif(MatchParameters.winner == 2):
+		winnerLabel.text = "Jogador 2 venceu!"
+	elif(MatchParameters.winner == 1):
+		winnerLabel.text = "Jogador 1 venceu!"
 
 func Restart():
 	get_tree().change_scene("Scenes/Match.tscn")

@@ -9,6 +9,8 @@ export(int) var matchTime = 180
 export(int) var maxGoals = 5
 export(bool) var useMaxGoals = false
 
+export(int) var winner = 0
+
 # Right side player positions only
 # For the left player we invert the X axis
 # TODO: Needs to be dynamic for varying sized teams
