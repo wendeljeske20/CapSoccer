@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/MatchManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/MatchParameters.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Sprites/botao_tampinha.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/botao_tampinha_b.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Balls/Ball-Cap.tscn" type="PackedScene" id=8]
+
+[sub_resource type="StyleBoxTexture" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0.831373, 1, 1 )
@@ -45,7 +47,6 @@ script = ExtResource( 3 )
 [node name="HudManager" type="Node2D" parent="."]
 
 [node name="ScorePanel" type="Sprite" parent="HudManager"]
-editor/display_folded = true
 position = Vector2( 0, -347.064 )
 texture = ExtResource( 4 )
 
@@ -57,6 +58,7 @@ margin_top = -20.0
 margin_right = -50.0
 margin_bottom = -2.0
 rect_scale = Vector2( 1.33, 1.33 )
+custom_styles/normal = SubResource( 3 )
 text = "10"
 align = 1
 valign = 1
@@ -96,7 +98,6 @@ value = 5.0
 percent_visible = false
 
 [node name="MatchWinnerPanel" type="Control" parent="."]
-editor/display_folded = true
 visible = false
 margin_left = -640.0
 margin_top = -360.0

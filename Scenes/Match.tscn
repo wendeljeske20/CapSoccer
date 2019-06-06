@@ -20,6 +20,7 @@ zoom = Vector2( 0.89, 0.92 )
 
 [node name="Pause" parent="." instance=ExtResource( 3 )]
 visible = false
+anchor_right = 1.0
 margin_left = -188.253
 margin_top = -218.862
 margin_right = 188.747

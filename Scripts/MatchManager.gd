@@ -52,6 +52,7 @@ func _ready():
 	
 	turnTimer.wait_time = MatchParameters.turnTime
 	turnTimer.start()
+	timeBar.max_value = MatchParameters.turnTime
 	
 	# Starting ball
 	get_node("BallManager").change_ball(load("res://Scenes/Balls/Ball-Official.tscn").instance())

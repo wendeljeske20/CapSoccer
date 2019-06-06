@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/background.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/MatchEnd.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/MatchEnd.gd" type="Script" id=2]
 [ext_resource path="res://ButtonTheme.tres" type="Theme" id=3]
 [ext_resource path="res://Scenes/OverlayShader.tscn" type="PackedScene" id=4]
 
@@ -21,9 +21,9 @@ script = ExtResource( 2 )
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -158.38
+margin_left = -149.999
 margin_top = 527.489
-margin_right = 211.621
+margin_right = 220.002
 margin_bottom = -432.513
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 theme = ExtResource( 3 )
@@ -34,9 +34,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -158.38
+margin_left = -149.999
 margin_top = 127.178
-margin_right = 211.62
+margin_right = 220.001
 margin_bottom = 247.178
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 theme = ExtResource( 3 )
@@ -47,9 +47,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -158.381
+margin_left = -149.999
 margin_top = 264.317
-margin_right = 211.619
+margin_right = 220.001
 margin_bottom = 384.317
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 theme = ExtResource( 3 )
