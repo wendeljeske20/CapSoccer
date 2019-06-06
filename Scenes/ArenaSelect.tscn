@@ -28,6 +28,7 @@ scale = Vector2( 0.7, 0.63 )
 texture = ExtResource( 2 )
 
 [node name="Panel" type="Panel" parent="."]
+editor/display_folded = true
 margin_left = 454.226
 margin_top = 2.0
 margin_right = 1101.23

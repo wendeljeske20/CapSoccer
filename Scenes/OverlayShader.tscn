@@ -7,7 +7,7 @@
 shader = ExtResource( 1 )
 shader_param/dispAmt = 0.002
 shader_param/dispScale = 1.0
-shader_param/abberationAmt = 0.001
+shader_param/abberationAmt = 0.002
 shader_param/timeLine = 0.0
 shader_param/displace = ExtResource( 2 )
 
