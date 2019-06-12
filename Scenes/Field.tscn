@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Sprites/mesa_1.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/mesa.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -85,4 +85,3 @@ isLeftSide = true
 position = Vector2( 403.288, 5.911 )
 rotation = 3.14159
 scale = Vector2( 0.897, 0.897 )
-
