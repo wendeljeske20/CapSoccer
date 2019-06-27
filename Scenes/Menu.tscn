@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
 [ext_resource path="res://ButtonTheme.tres" type="Theme" id=3]
 [ext_resource path="res://Sprites/faixa.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/OverlayShader.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Shaders/CRT_Shader.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -74,10 +74,5 @@ position = Vector2( 949.859, 443.24 )
 scale = Vector2( 0.554208, 0.554208 )
 texture = ExtResource( 4 )
 
-[node name="OverlayShader" parent="." instance=ExtResource( 5 )]
-margin_left = -4.08215
-margin_top = -2.91566
-margin_right = 1221.92
-margin_bottom = 689.084
-rect_scale = Vector2( 1.56887, 1.56879 )
+[node name="CRT_Shader" parent="." instance=ExtResource( 5 )]
 

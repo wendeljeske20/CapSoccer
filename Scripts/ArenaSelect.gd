@@ -51,7 +51,10 @@ func ChangeMatchTime(value):
 	if newTime > 0:
 		MatchParameters.matchTime = newTime
 		if newTime >= 60:
-			matchTime.text = str(newTime/60) + ":" + str(newTime%60)
+			matchTime.text = str(newTime/60) + ":"
+			if newTime%60 < 10:
+				matchTime.text += "0"
+			matchTime.text += str(newTime%60)
 		else:
 			matchTime.text = str(newTime)
 
@@ -61,6 +64,9 @@ func ChangeTurnTime(value):
 	if newTime > 0:
 		MatchParameters.turnTime = newTime
 		if newTime >= 60:
-			turnTime.text = str(newTime/60) + ":" + str(newTime%60)
+			turnTime.text = str(newTime/60) + ":"
+			if newTime%60 < 10:
+				turnTime.text += "0"
+			turnTime.text += str(newTime%60)
 		else:
 			turnTime.text = str(newTime)
