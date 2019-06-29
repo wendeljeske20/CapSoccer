@@ -7,6 +7,8 @@ onready var configurationsButton = get_node("ConfigurationsButton")
 onready var quitButton = get_node("QuitButton")
 
 func _ready():
+	#OS.window_fullscreen = true
+	
 	startButton.connect("pressed",self,"Play")
 	startButton.grab_focus()
 	configurationsButton.connect("pressed",self,"Configurations")

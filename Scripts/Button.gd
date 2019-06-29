@@ -62,14 +62,18 @@ func _process(delta):
 func SetTexture(texture):
 	sprite = get_node("Sprite")
 	sprite.set_texture(texture)
-	
-	
+
+func SetHightlightTexture(texture):
+	sprite = get_node("Sprite/OutlineSprite")
+	sprite.set_texture(texture)
+
 func _integrate_forces(state):
 	rotation = m_angle
 	
 	if shouldReset:
 		# Reseting pos
-		state.transform.origin = spawnPosition
+		# Centering manuall lol
+		state.transform.origin = spawnPosition + Vector2(960, 540)
 		
 		# Stopping
 		state.linear_velocity.x = 0

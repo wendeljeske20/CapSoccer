@@ -8,6 +8,7 @@
 [node name="Match" type="Node2D"]
 
 [node name="Field" parent="." instance=ExtResource( 1 )]
+position = Vector2( 960, 540 )
 
 [node name="MatchManager" parent="." instance=ExtResource( 2 )]
 position = Vector2( 960, 540 )

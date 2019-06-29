@@ -10,8 +10,8 @@ uniform float timeLine : hint_range(0.0, 10.0);
 uniform float scanSpeed : hint_range(0.1, 100.0);
 uniform float scanOffset : hint_range(0.1, 100.0);
 
-uniform float screenCurvature : hint_range(0.0, 2.0);
-uniform float curvatureDistance : hint_range(0.0, 2.0);
+uniform float screenCurvature : hint_range(0.0, 10.0);
+uniform float curvatureDistance : 1.5;
 
 vec2 distort(vec2 p) {
 

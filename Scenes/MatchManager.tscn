@@ -1,21 +1,72 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/MatchManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/MatchParameters.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/BallManager.gd" type="Script" id=3]
-[ext_resource path="res://Fonts/dynamicFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/timeFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/botao_tampinha.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/botao_tampinha_b.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Balls/Ball-Official.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/borda.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/botao_costura_b.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/costura_hightlight.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Balls/Ball-Official.tscn" type="PackedScene" id=10]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.172549, 0.172549, 0.172549, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.996078, 0.839216, 0.541176, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color( 0, 0, 0, 0.0588235 )
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.992157, 0.494118, 0.984314, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color( 0, 0, 0, 0.0392157 )
+shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.270588, 0.513726, 0.886275, 1 )
-border_color = Color( 1, 1, 1, 0 )
+border_width_left = 6
+border_width_top = 6
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
 corner_detail = 1
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
+expand_margin_right = 6.0
 
 [node name="MatchManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -36,66 +87,74 @@ one_shot = true
 script = ExtResource( 3 )
 
 [node name="HudManager" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 0, -150 )
 
 [node name="ScorePanel" type="Panel" parent="HudManager"]
-margin_left = -50.0
+margin_left = -121.0
 margin_top = -367.0
-margin_right = 50.0
-margin_bottom = -327.0
+margin_right = 121.0
+margin_bottom = -282.0
+custom_styles/panel = SubResource( 3 )
 
 [node name="TimeLabel" type="Label" parent="HudManager/ScorePanel"]
 anchor_right = 0.5
 anchor_bottom = 0.3
-margin_right = 25.0
-margin_bottom = 20.0
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 62.0
+margin_bottom = 24.5
 rect_scale = Vector2( 1.33, 1.33 )
 custom_fonts/font = ExtResource( 4 )
 text = "10"
 align = 1
 valign = 2
 
-[node name="Player1ScoreLabel" type="Label" parent="HudManager/ScorePanel"]
+[node name="Player1Panel" type="Panel" parent="HudManager/ScorePanel"]
+margin_left = -100.0
+margin_right = -15.0
+margin_bottom = 85.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="scoreLabel" type="Label" parent="HudManager/ScorePanel/Player1Panel"]
 anchor_right = 0.5
 anchor_bottom = 0.3
-margin_left = -40.0
-margin_right = -52.0
-margin_bottom = 28.0
+margin_top = -1.0
+margin_right = 42.5
+margin_bottom = 59.5
 custom_fonts/font = ExtResource( 4 )
 text = "0"
 align = 1
 valign = 1
 
-[node name="Player2ScoreLabel" type="Label" parent="HudManager/ScorePanel"]
+[node name="Player2Panel" type="Panel" parent="HudManager/ScorePanel"]
+margin_left = 255.0
+margin_right = 340.0
+margin_bottom = 85.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="scoreLabel" type="Label" parent="HudManager/ScorePanel/Player2Panel"]
 anchor_right = 0.5
 anchor_bottom = 0.3
-margin_left = 100.0
-margin_right = 88.0
-margin_bottom = 28.0
+margin_left = 1.0
+margin_right = 42.5
+margin_bottom = 59.5
 custom_fonts/font = ExtResource( 4 )
 text = "0"
 align = 1
 valign = 1
-
-[node name="TimeBarBackground" type="ColorRect" parent="HudManager"]
-margin_left = -153.0
-margin_top = -313.0
-margin_right = 154.0
-margin_bottom = -278.0
 
 [node name="TurnTimeBar" type="ProgressBar" parent="HudManager"]
-margin_left = -150.0
-margin_top = -310.0
-margin_right = 150.0
-margin_bottom = -281.0
+margin_left = -216.0
+margin_top = 590.0
+margin_right = 210.0
+margin_bottom = 630.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 max_value = 10.0
 step = 0.05
-value = 5.0
+value = 10.0
 percent_visible = false
 
 [node name="MatchWinnerPanel" type="Control" parent="."]
@@ -118,11 +177,13 @@ uppercase = true
 position = Vector2( 0, -1 )
 playerID = "1"
 sprite_texture = ExtResource( 6 )
+hightlight_texture = ExtResource( 7 )
 
 [node name="Player2" parent="." instance=ExtResource( 5 )]
 playerID = "2"
-sprite_texture = ExtResource( 7 )
+sprite_texture = ExtResource( 8 )
+hightlight_texture = ExtResource( 9 )
 
-[node name="Ball" parent="." instance=ExtResource( 8 )]
+[node name="Ball" parent="." instance=ExtResource( 10 )]
 
 [connection signal="timeout" from="MatchTimer" to="." method="_on_MatchTimer_timeout"]

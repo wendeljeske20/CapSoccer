@@ -23,8 +23,6 @@ var playerPositions = [
 	Vector2(250, 150)
 ]
 
-#var centerX = 960
-
 func AddMatchTime(delta):
 	matchTime += delta
 

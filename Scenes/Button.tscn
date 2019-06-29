@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Button.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/botao_costura.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/botao_tampinha.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/borda.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/seta_grande.png" type="Texture" id=4]
 [ext_resource path="res://Audios/goal.ogg" type="AudioStream" id=5]
@@ -11,13 +11,13 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 45.904
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 81, 72 )
 axis_stretch_horizontal = 1
-modulate_color = Color( 0.282353, 0.32549, 0.886275, 1 )
+modulate_color = Color( 0.329412, 0.337255, 0.8, 1 )
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 81, 72 )
 
@@ -55,22 +55,23 @@ margin_left = 48.6023
 margin_top = -25.309
 margin_right = 129.602
 margin_bottom = 24.691
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 3 )
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
 max_value = 10.0
 step = 0.5
-value = 7.5
+value = 6.5
 percent_visible = false
 
 [node name="AudioHit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 volume_db = 4.177
 pitch_scale = 1.1
+attenuation = 0.0980732
 
 [node name="AudioGrass" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
 volume_db = -5.0
-attenuation = 13.4543
+attenuation = 0.196145
 
 [node name="ArrowSprite" type="Sprite" parent="."]
 position = Vector2( 59.87, 0 )

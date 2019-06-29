@@ -38,7 +38,7 @@ enum MATCH_END {
 var scoringPlayer = null
 
 func _ready():
-	# Init players
+		# Init players
 	player1.startPositions = MatchParameters.GetPlayerPosition(true)
 	player2.startPositions = MatchParameters.GetPlayerPosition(false)
 	

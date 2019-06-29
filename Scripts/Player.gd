@@ -2,13 +2,13 @@ extends Node2D
 
 export(String) var playerID
 export(Texture) var sprite_texture
-onready var scoreLabel = get_node("../HudManager/ScorePanel/Player"+ playerID +"ScoreLabel")
+export(Texture) var hightlight_texture
+onready var scoreLabel = get_node("../HudManager/ScorePanel/Player"+ playerID +"Panel/scoreLabel")
 var score = 0;
 
 var buttonPreload = preload("res://Scenes/Button.tscn")
 var buttons = []
 var currentButton = 0
-
 
 var startPositions = []
 
@@ -30,6 +30,7 @@ func SpawnButtons():
 		button.position = startPositions[i]
 		#setting button sprites
 		button.SetTexture(sprite_texture)
+		button.SetHightlightTexture(hightlight_texture)
 		
 		get_node("").add_child(button)
 		buttons.append(button)
