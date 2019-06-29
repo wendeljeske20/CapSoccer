@@ -11,8 +11,8 @@ shader_param/abberationAmt = 0.002
 shader_param/timeLine = null
 shader_param/scanSpeed = 2.0
 shader_param/scanOffset = 2.0
-shader_param/screenCurvature = 1.5
-shader_param/curvatureDistance = 1.5
+shader_param/screenCurvature = 1.0
+shader_param/curvatureDistance = 2.0
 shader_param/displace = ExtResource( 2 )
 
 [node name="CRT Shader Control" type="Control"]

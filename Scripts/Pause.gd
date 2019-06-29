@@ -1,6 +1,6 @@
 extends Panel
 
-onready var matchManager = get_node("../MatchManager")
+onready var matchManager = get_node(".../..//MatchManager")
 onready var resumeButton = get_node("ResumeButton")
 onready var arenaSelectButton = get_node("ArenaSelectButton")
 onready var quitButton = get_node("QuitButton")

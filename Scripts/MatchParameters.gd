@@ -7,6 +7,8 @@ export(int) var turnTime = 10
 # Match time
 export(int) var matchTime = 180
 export(int) var maxGoals = 5
+
+export(bool) var useMaxTime = false
 export(bool) var useMaxGoals = false
 
 export(int) var winner = 0

@@ -13,7 +13,7 @@ onready var turnTimer : Timer = get_node("TurnTimer")
 
 # UI
 onready var timeLabel = get_node("HudManager/ScorePanel/TimeLabel")
-onready var timeBar = get_node("HudManager/ScorePanel/TurnTimeBar")
+onready var timeBar = get_node("HudManager/TurnTimeBar")
 onready var pausePanel = get_node("../Pause")
 
 # Input Section
@@ -34,6 +34,8 @@ enum MATCH_END {
 ############
 # Functions
 ############
+
+var scoringPlayer = null
 
 func _ready():
 	# Init players
@@ -78,7 +80,19 @@ func _process(delta):
 		else:
 			player1.ResetButtonPositions()
 			player2.ResetButtonPositions()
-			PassTurn()
+			InvertTurn()
+	pass
+
+func InvertTurn():
+	currentPlayer.ClearCurrentButton()
+	if scoringPlayer == player1:
+		currentPlayer = player2
+	else:
+		currentPlayer = player1
+	
+	currentPlayer.SetButtonHightlight()
+	# Reset timer
+	turnTimer.start();
 	pass
 
 func PassTurn():
@@ -133,15 +147,28 @@ func CheckGoal():
 	if ball.goalScored != 0:
 		if ball.goalScored == 1:
 			player1.score += 1
+			scoringPlayer = player1
 		else:
 			player2.score += 1
+			scoringPlayer = player2
 		
 		ball.goalScored = 0
 		return true
 	return false
 
 func UpdateTimers():
-	timeLabel.set_text(str(int(round(matchTimer.get_time_left()))))
+	
+	var newTime = int(round(matchTimer.get_time_left()))
+	var newText = ""
+	if newTime >= 60:
+			newText = str(newTime/60) + ":"
+			if newTime%60 < 10:
+				newText += "0"
+			newText += str(newTime%60)
+	else:
+		newText = str(newTime)
+	
+	timeLabel.set_text(newText)
 	timeBar.value = turnTimer.get_time_left()
 
 func CheckTurnTimer():
@@ -178,4 +205,5 @@ func EndMatch(result):
 
 # !SIGNAL WITH MATCHTIMER!
 func _on_MatchTimer_timeout():
-	CheckMatchEndTime()
+	if MatchParameters.useMaxTime:
+		CheckMatchEndTime()

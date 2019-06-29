@@ -1,20 +1,28 @@
-[gd_resource type="Theme" load_steps=9 format=2]
+[gd_resource type="Theme" load_steps=11 format=2]
 
 [ext_resource path="res://Fonts/LemonMilk.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://Sprites/botao_focado.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/botao_normal.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/botao_normal.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/botao_focado.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/botao_pressionado.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxTexture" id=2]
+[sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 364, 117 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 448, 177 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 448, 177 )
 
 [sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 364, 117 )
 
 [sub_resource type="StyleBoxTexture" id=4]
@@ -28,9 +36,9 @@ Button/colors/font_color_hover = Color( 1, 1, 1, 1 )
 Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
 Button/constants/hseparation = 0
 Button/fonts/font = SubResource( 1 )
-Button/styles/disabled = null
+Button/styles/disabled = SubResource( 5 )
 Button/styles/focus = SubResource( 2 )
-Button/styles/hover = null
+Button/styles/hover = SubResource( 6 )
 Button/styles/normal = SubResource( 3 )
 Button/styles/pressed = SubResource( 4 )
 

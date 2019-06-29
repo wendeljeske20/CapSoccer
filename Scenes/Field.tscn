@@ -7,82 +7,81 @@
 bounce = 0.2
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 480.847, 10 )
+extents = Vector2( 597.82, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 97.9062, 10 )
+extents = Vector2( 110, 10 )
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 29.8859
+radius = 40.0429
 
 [node name="Field" type="Node2D"]
 
 [node name="Field" type="RigidBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 0.307343, 0 )
 mode = 1
 physics_material_override = SubResource( 1 )
 can_sleep = false
 
 [node name="Sprite" type="Sprite" parent="Field"]
-scale = Vector2( 0.32, 0.32 )
+position = Vector2( 960, 540 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Field"]
-position = Vector2( 0, -252.476 )
+position = Vector2( 942.18, 150 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Field"]
-position = Vector2( 0, 259.517 )
+position = Vector2( 942.18, 930 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Field"]
-position = Vector2( 382.318, 182.742 )
+position = Vector2( 1550.81, 780 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Field"]
-position = Vector2( -391.366, 183.6 )
+position = Vector2( 360.814, 780 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Field"]
-position = Vector2( 381.504, -171.472 )
+position = Vector2( 1550, 330 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Field"]
-position = Vector2( -392.18, -171.345 )
+position = Vector2( 360, 330 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Field"]
-position = Vector2( -385.743, -240.912 )
+position = Vector2( 370, 180 )
 rotation = 1.5708
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Field"]
-position = Vector2( 370.933, -226.251 )
+position = Vector2( 1526.01, 194.661 )
 rotation = 1.5708
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Field"]
-position = Vector2( -377.598, 249.16 )
+position = Vector2( 378.145, 920 )
 rotation = 1.5708
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Field"]
-position = Vector2( 364.919, 249.974 )
+position = Vector2( 1520, 920.814 )
 rotation = 1.5708
 shape = SubResource( 4 )
 
 [node name="GoalLeft" parent="." instance=ExtResource( 2 )]
-position = Vector2( -403.288, 5.91105 )
-scale = Vector2( 0.896571, 0.896571 )
+position = Vector2( 380, 560 )
+scale = Vector2( 1.28855, 1.28855 )
 isLeftSide = true
 
 [node name="GoalRight" parent="." instance=ExtResource( 2 )]
-position = Vector2( 403.288, 5.911 )
+position = Vector2( 1510, 560 )
 rotation = 3.14159
-scale = Vector2( 0.897, 0.897 )
+scale = Vector2( 1.289, 1.289 )
 

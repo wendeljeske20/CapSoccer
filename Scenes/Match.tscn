@@ -6,30 +6,19 @@
 [ext_resource path="res://Scenes/OverlayShader.tscn" type="PackedScene" id=4]
 
 [node name="Match" type="Node2D"]
-scale = Vector2( 1.31561, 1.31561 )
 
 [node name="Field" parent="." instance=ExtResource( 1 )]
-scale = Vector2( 1.1122, 1.1122 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2( 0.998521, 1 )
-current = true
-zoom = Vector2( 0.89, 0.92 )
 
 [node name="MatchManager" parent="." instance=ExtResource( 2 )]
 
 [node name="Pause" parent="." instance=ExtResource( 3 )]
 visible = false
-anchor_right = 1.0
-margin_left = -188.253
-margin_top = -218.862
-margin_right = 188.747
-margin_bottom = 251.138
+margin_right = 1920.0
+margin_bottom = 1080.0
 
 [node name="OverlayShader" parent="." instance=ExtResource( 4 )]
-margin_left = -665.704
-margin_top = -398.759
-margin_right = 560.296
-margin_bottom = 293.241
-rect_scale = Vector2( 1.12488, 1.12488 )
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 
