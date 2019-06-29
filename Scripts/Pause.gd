@@ -1,9 +1,9 @@
-extends Panel
+extends Control
 
-onready var matchManager = get_node(".../..//MatchManager")
-onready var resumeButton = get_node("ResumeButton")
-onready var arenaSelectButton = get_node("ArenaSelectButton")
-onready var quitButton = get_node("QuitButton")
+onready var matchManager = get_node("../MatchManager")
+onready var resumeButton = get_node("Pause/ResumeButton")
+onready var arenaSelectButton = get_node("Pause/ArenaSelectButton")
+onready var quitButton = get_node("Pause/QuitButton")
 
 func _ready():
 	quitButton.connect("pressed",self,"Quit")

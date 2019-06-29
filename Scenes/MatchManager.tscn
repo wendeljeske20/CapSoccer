@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/MatchManager.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/MatchParameters.gd" type="Script" id=2]
@@ -7,18 +7,15 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/botao_tampinha.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/botao_tampinha_b.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Balls/Ball-Cap.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Balls/Ball-Official.tscn" type="PackedScene" id=8]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.270588, 0.513726, 0.886275, 1 )
 border_color = Color( 1, 1, 1, 0 )
 corner_detail = 1
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.12549, 0.12549, 0.12549, 1 )
-
-[sub_resource type="PhysicsMaterial" id=3]
-bounce = 0.6
 
 [node name="MatchManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -39,6 +36,8 @@ one_shot = true
 script = ExtResource( 3 )
 
 [node name="HudManager" type="Node2D" parent="."]
+editor/display_folded = true
+position = Vector2( 0, -150 )
 
 [node name="ScorePanel" type="Panel" parent="HudManager"]
 margin_left = -50.0
@@ -80,18 +79,18 @@ align = 1
 valign = 1
 
 [node name="TimeBarBackground" type="ColorRect" parent="HudManager"]
-margin_left = -103.0
+margin_left = -153.0
 margin_top = -313.0
-margin_right = 103.0
-margin_bottom = -293.0
+margin_right = 154.0
+margin_bottom = -278.0
 
 [node name="TurnTimeBar" type="ProgressBar" parent="HudManager"]
-margin_left = -100.0
-margin_top = -310.064
-margin_right = 100.0
-margin_bottom = -296.064
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 4 )
+margin_left = -150.0
+margin_top = -310.0
+margin_right = 150.0
+margin_bottom = -281.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 max_value = 10.0
@@ -125,6 +124,5 @@ playerID = "2"
 sprite_texture = ExtResource( 7 )
 
 [node name="Ball" parent="." instance=ExtResource( 8 )]
-physics_material_override = SubResource( 3 )
 
 [connection signal="timeout" from="MatchTimer" to="." method="_on_MatchTimer_timeout"]

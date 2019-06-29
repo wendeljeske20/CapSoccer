@@ -1,87 +1,77 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Sprites/ui_base.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/ui_base.png" type="Texture" id=2]
 [ext_resource path="res://ButtonTheme.tres" type="Theme" id=3]
+[ext_resource path="res://Fonts/pausefont.tres" type="DynamicFont" id=4]
 
 [sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 380, 363 )
 
-[node name="Pause" type="Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -249.0
-margin_top = -288.0
-margin_right = 249.0
-margin_bottom = 288.0
-custom_styles/panel = SubResource( 1 )
-script = ExtResource( 2 )
+[node name="PauseControl" type="Control"]
+script = ExtResource( 1 )
 
-[node name="ResumeButton" type="Button" parent="."]
+[node name="Vignette" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 0.313726 )
+
+[node name="Pause" type="Panel" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -174.0
-margin_top = -202.0
-margin_right = 174.0
-margin_bottom = -145.0
-rect_pivot_offset = Vector2( 214, 214.456 )
+margin_left = 700.0
+margin_top = 250.0
+margin_right = 1200.0
+margin_bottom = 850.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="ResumeButton" type="Button" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -175.0
+margin_top = -120.0
+margin_right = 175.0
+margin_bottom = -20.0
 theme = ExtResource( 3 )
 text = "Retomar Partida"
 
-[node name="SoundEffectsVolumeSlider" type="HSlider" parent="."]
+[node name="ArenaSelectButton" type="Button" parent="Pause"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -114.5
-margin_top = -85.1809
-margin_right = 114.5
-margin_bottom = -51.1809
-rect_pivot_offset = Vector2( 190.455, 133.027 )
-theme = ExtResource( 3 )
-ticks_on_borders = true
-
-[node name="MusicVolumeSlider" type="HSlider" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -114.5
-margin_top = -17.0
-margin_right = 114.5
-margin_bottom = 17.0
-rect_pivot_offset = Vector2( 190.455, 89.767 )
-theme = ExtResource( 3 )
-ticks_on_borders = true
-
-[node name="ArenaSelectButton" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -173.0
-margin_top = 75.0
-margin_right = 173.0
-margin_bottom = 132.0
-rect_pivot_offset = Vector2( 214, 40.743 )
+margin_left = -175.0
+margin_top = 20.0
+margin_right = 175.0
+margin_bottom = 120.0
 theme = ExtResource( 3 )
 text = "Seleção de Arenas"
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="Pause"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -174.0
-margin_top = 170.0
-margin_right = 174.0
-margin_bottom = 227.0
-rect_pivot_offset = Vector2( 214, -36 )
+margin_left = -175.0
+margin_top = 160.0
+margin_right = 175.0
+margin_bottom = 260.0
 theme = ExtResource( 3 )
 text = "Voltar ao Menu"
+
+[node name="PauseText" type="Label" parent="Pause"]
+margin_left = 75.0
+margin_top = 60.0
+margin_right = 420.0
+margin_bottom = 121.0
+custom_fonts/font = ExtResource( 4 )
+text = "PAUSA"
+align = 1
 

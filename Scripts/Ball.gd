@@ -19,15 +19,15 @@ func _integrate_forces(state):
 	if shouldReset:
 		# Set to spawn pos if just created
 		if spawnPos != null:
-			state.transform.origin = spawnPos
-			state.linear_velocity = spawnVel
+			state.transform.origin = 0
+			state.linear_velocity = 0
 			shouldReset = false
 			spawnPos = null
 			return
 			
 		# Reseting pos
-		state.transform.origin.x = 0
-		state.transform.origin.y = 0
+		state.transform.origin.x = 960
+		state.transform.origin.y = 540
 		
 		# Stopping
 		state.linear_velocity.x = 0
