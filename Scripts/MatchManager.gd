@@ -38,6 +38,9 @@ enum MATCH_END {
 var scoringPlayer = null
 
 func _ready():
+	
+	UI_Audios.playWhistle()
+	
 		# Init players
 	player1.startPositions = MatchParameters.GetPlayerPosition(true)
 	player2.startPositions = MatchParameters.GetPlayerPosition(false)
@@ -78,6 +81,7 @@ func _process(delta):
 		if(matchWinner):
 			EndMatch(matchWinner)
 		else:
+			UI_Audios.playGoal()
 			player1.ResetButtonPositions()
 			player2.ResetButtonPositions()
 			InvertTurn()
@@ -145,9 +149,6 @@ func PauseMatch(pause):
 func CheckGoal():
 	var ball = get_node("Ball")
 	if ball.goalScored != 0:
-		
-		UI_Audios.playGoal()
-		
 		if ball.goalScored == 1:
 			player1.score += 1
 			scoringPlayer = player1
@@ -202,7 +203,7 @@ func CheckMatchEndTime():
 	EndMatch(matchResult)
 
 func EndMatch(result):
-		# TODO: Change for art instead of Godot label
+	UI_Audios.playWhistle()
 	MatchParameters.winner = result
 	##CHAMA AQUI
 	get_tree().change_scene("Scenes/MatchEnd.tscn")

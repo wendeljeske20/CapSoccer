@@ -4,10 +4,14 @@ export(AudioStream) var buttonClick
 export(AudioStream) var buttonFocus
 
 export(Array, AudioStream) var goalSounds
+export(Array, AudioStream) var endGameSounds
+export(Array, AudioStream) var whistleSounds
 
 onready var buttonClickNode = null
 onready var buttonFocusNode = null
 onready var goalAudioNode = null
+onready var endAudioNode = null
+onready var whistleAudioNode = null
 
 func playButtonClick():
 	if buttonClickNode == null:
@@ -28,3 +32,15 @@ func playGoal():
 		goalAudioNode = get_node("GoalAudio")
 	goalAudioNode.stream = goalSounds[randi() % goalSounds.size()]
 	goalAudioNode.play()
+
+func playEndGame():
+	if endAudioNode == null:
+		endAudioNode = get_node("EndGame")
+	endAudioNode.stream = endGameSounds[randi() % endGameSounds.size()]
+	endAudioNode.play()
+
+func playWhistle():
+	if whistleAudioNode == null:
+		whistleAudioNode = get_node("Whistle")
+	whistleAudioNode.stream = whistleSounds[randi() % whistleSounds.size()]
+	whistleAudioNode.play()

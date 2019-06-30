@@ -6,6 +6,8 @@ onready var menuButton = get_node("MenuButton")
 onready var winnerLabel = get_node("WinnerLabel")
 
 func _ready():
+	UI_Audios.playEndGame()
+	
 	restartButton.connect("pressed",self,"Restart")
 	restartButton.grab_focus()
 	arenaSelectButton.connect("pressed",self,"ArenaSelect")

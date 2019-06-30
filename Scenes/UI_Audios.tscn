@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://UI_Audios.gd" type="Script" id=1]
 [ext_resource path="res://Audios/UI_Click_Aftertap_mono.wav" type="AudioStream" id=2]
@@ -7,16 +7,33 @@
 [ext_resource path="res://Audios/MUSIC_EFFECT_Orchestral_Brass_Positive_04_stereo.wav" type="AudioStream" id=5]
 [ext_resource path="res://Audios/MUSIC_EFFECT_Orchestral_Brass_Positive_06_stereo.wav" type="AudioStream" id=6]
 [ext_resource path="res://Audios/MUSIC_EFFECT_Orchestral_Brass_Positive_07_stereo.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audios/MUSIC_EFFECT_Orchestral_Brass_Positive_10_stereo.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audios/MUSIC_EFFECT_Orchestral_Brass_Positive_15_stereo.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audios/whistle1.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Audios/whistle2.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Audios/whistle3.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Audios/whistle4.ogg" type="AudioStream" id=13]
 
 [node name="UI_Audios" type="Node"]
 script = ExtResource( 1 )
 buttonClick = ExtResource( 2 )
 buttonFocus = ExtResource( 3 )
 goalSounds = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ]
+endGameSounds = [ ExtResource( 8 ), ExtResource( 9 ) ]
+whistleSounds = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+bus = "Effects"
 
 [node name="ButtonFocus" type="AudioStreamPlayer" parent="."]
+bus = "Effects"
 
 [node name="GoalAudio" type="AudioStreamPlayer" parent="."]
+bus = "Effects"
+
+[node name="EndGame" type="AudioStreamPlayer" parent="."]
+bus = "Effects"
+
+[node name="Whistle" type="AudioStreamPlayer" parent="."]
+bus = "Effects"
 
