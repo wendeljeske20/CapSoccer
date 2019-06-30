@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/GoalSetter.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GoalSound.gd" type="Script" id=2]
-[ext_resource path="res://Audios/goal.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audios/IMPACT_Metal_Cling_Clean_mono.wav" type="AudioStream" id=3]
 [ext_resource path="res://Sprites/goleira.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Goal.gd" type="Script" id=5]
 

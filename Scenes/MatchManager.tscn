@@ -4,14 +4,16 @@
 [ext_resource path="res://Scripts/MatchParameters.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/BallManager.gd" type="Script" id=3]
 [ext_resource path="res://Fonts/timeFont.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/botao_tampinha.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/borda.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/tampinha_sombra.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/botao_costura_b.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/costura_hightlight.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/costura_sombra.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/Balls/Ball-Official.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Styles/BarFG.tres" type="StyleBox" id=5]
+[ext_resource path="res://Styles/BarBG.tres" type="StyleBox" id=6]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/botao_tampinha.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/borda.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/tampinha_sombra.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/botao_costura_b.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/costura_hightlight.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/costura_sombra.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/Balls/Ball-Official.tscn" type="PackedScene" id=14]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.172549, 0.172549, 0.172549, 1 )
@@ -52,23 +54,6 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 shadow_color = Color( 0, 0, 0, 0.0392157 )
 shadow_size = 10
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.270588, 0.513726, 0.886275, 1 )
-border_width_left = 6
-border_width_top = 6
-border_width_bottom = 6
-border_color = Color( 1, 1, 1, 1 )
-corner_detail = 1
-
-[sub_resource type="StyleBoxFlat" id=5]
-bg_color = Color( 0.12549, 0.12549, 0.12549, 1 )
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color( 1, 1, 1, 1 )
-expand_margin_right = 6.0
 
 [node name="MatchManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -153,8 +138,8 @@ margin_left = -216.0
 margin_top = 590.0
 margin_right = 210.0
 margin_bottom = 630.0
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 5 )
+custom_styles/fg = ExtResource( 5 )
+custom_styles/bg = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 max_value = 10.0
@@ -178,19 +163,19 @@ margin_bottom = 209.0
 text = "WE HAVE A WINNER!!!"
 uppercase = true
 
-[node name="Player1" parent="." instance=ExtResource( 5 )]
+[node name="Player1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, -1 )
 playerID = "1"
-sprite_texture = ExtResource( 6 )
-hightlight_texture = ExtResource( 7 )
-shadow_texture = ExtResource( 8 )
+sprite_texture = ExtResource( 8 )
+hightlight_texture = ExtResource( 9 )
+shadow_texture = ExtResource( 10 )
 
-[node name="Player2" parent="." instance=ExtResource( 5 )]
+[node name="Player2" parent="." instance=ExtResource( 7 )]
 playerID = "2"
-sprite_texture = ExtResource( 9 )
-hightlight_texture = ExtResource( 10 )
-shadow_texture = ExtResource( 11 )
+sprite_texture = ExtResource( 11 )
+hightlight_texture = ExtResource( 12 )
+shadow_texture = ExtResource( 13 )
 
-[node name="Ball" parent="." instance=ExtResource( 12 )]
+[node name="Ball" parent="." instance=ExtResource( 14 )]
 
 [connection signal="timeout" from="MatchTimer" to="." method="_on_MatchTimer_timeout"]

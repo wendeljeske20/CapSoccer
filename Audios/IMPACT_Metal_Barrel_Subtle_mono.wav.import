@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/IMPACT_Metal_Barrel_Subtle_mono.wav-eabca31238783ef27d361c72f23c4233.sample"
+
+[deps]
+
+source_file="res://Audios/IMPACT_Metal_Barrel_Subtle_mono.wav"
+dest_files=[ "res://.import/IMPACT_Metal_Barrel_Subtle_mono.wav-eabca31238783ef27d361c72f23c4233.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

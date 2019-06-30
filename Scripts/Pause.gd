@@ -11,20 +11,23 @@ func _ready():
 	resumeButton.connect("pressed",self,"Resume")
 
 func Resume():
+	UI_Audios.playButtonClick()
 	hide()
 	matchManager.PauseMatch(false)
-	
+
 func Pause():
+	UI_Audios.playButtonClick()
 	show()
 	resumeButton.grab_focus()
 	matchManager.PauseMatch(true)
 
 func ArenaSelect():
+	UI_Audios.playButtonClick()
 	matchManager.PauseMatch(false) # precisa despausar para não bugar
 	get_tree().change_scene("Scenes/ArenaSelect.tscn")
-	
-	
+
 func Quit():
+	UI_Audios.playButtonClick()
 	Resume()
 	get_tree().change_scene("Scenes/Menu.tscn")
 	
@@ -36,4 +39,3 @@ func _process(delta):
 			Resume()
 		else:
 			Pause()
-	

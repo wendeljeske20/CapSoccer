@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Audios/Platform Action 30s LOOP.wav" type="AudioStream" id=1]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+volume_db = -35.0
+autoplay = true
+

@@ -145,6 +145,9 @@ func PauseMatch(pause):
 func CheckGoal():
 	var ball = get_node("Ball")
 	if ball.goalScored != 0:
+		
+		UI_Audios.playGoal()
+		
 		if ball.goalScored == 1:
 			player1.score += 1
 			scoringPlayer = player1
@@ -158,18 +161,22 @@ func CheckGoal():
 
 func UpdateTimers():
 	
-	var newTime = int(round(matchTimer.get_time_left()))
-	var newText = ""
-	if newTime >= 60:
-			newText = str(newTime/60) + ":"
-			if newTime%60 < 10:
-				newText += "0"
-			newText += str(newTime%60)
-	else:
-		newText = str(newTime)
-	
-	timeLabel.set_text(newText)
 	timeBar.value = turnTimer.get_time_left()
+	
+	if MatchParameters.matchTime > 0:
+		var newTime = int(round(matchTimer.get_time_left()))
+		var newText = ""
+		if newTime >= 60:
+				newText = str(newTime/60) + ":"
+				if newTime%60 < 10:
+					newText += "0"
+				newText += str(newTime%60)
+		else:
+			newText = str(newTime)
+		
+		timeLabel.set_text(newText)
+	else:
+		timeLabel.set_text("-")
 
 func CheckTurnTimer():
 	if turnTimer.time_left <= 0:

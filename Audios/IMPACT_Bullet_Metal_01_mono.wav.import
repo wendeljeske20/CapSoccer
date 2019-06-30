@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/IMPACT_Bullet_Metal_01_mono.wav-cb2e2be794a6394e4c7cc3f88494aff2.sample"
+
+[deps]
+
+source_file="res://Audios/IMPACT_Bullet_Metal_01_mono.wav"
+dest_files=[ "res://.import/IMPACT_Bullet_Metal_01_mono.wav-cb2e2be794a6394e4c7cc3f88494aff2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

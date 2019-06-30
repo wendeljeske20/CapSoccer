@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/background.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
 [ext_resource path="res://ButtonTheme.tres" type="Theme" id=3]
-[ext_resource path="res://Sprites/logo2 .png" type="Texture" id=4]
-[ext_resource path="res://Sprites/menino_colorido.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/velho_colorido.png" type="Texture" id=6]
-[ext_resource path="res://Shaders/CRT_Shader.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/ButtonSound.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/logo2 .png" type="Texture" id=5]
+[ext_resource path="res://Sprites/menino_colorido.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/velho_colorido.png" type="Texture" id=7]
+[ext_resource path="res://Shaders/CRT_Shader.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -23,15 +24,15 @@ anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -150.0
-margin_top = 560.0
+margin_top = 510.0
 margin_right = 150.0
-margin_bottom = -400.0
+margin_bottom = -450.0
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 theme = ExtResource( 3 )
 text = "Jogar!"
+script = ExtResource( 4 )
 
 [node name="ConfigurationsButton" type="Button" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -43,6 +44,7 @@ margin_bottom = 233.451
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 theme = ExtResource( 3 )
 text = "Configurações"
+script = ExtResource( 4 )
 
 [node name="CreditsButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -50,12 +52,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -150.0
-margin_top = 164.129
+margin_top = 250.0
 margin_right = 150.0
-margin_bottom = 284.129
+margin_bottom = 370.0
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 theme = ExtResource( 3 )
 text = "Créditos"
+script = ExtResource( 4 )
 
 [node name="QuitButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -63,27 +66,28 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -150.0
-margin_top = 301.268
+margin_top = 387.139
 margin_right = 150.0
-margin_bottom = 421.268
+margin_bottom = 507.139
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 theme = ExtResource( 3 )
 text = "Sair"
+script = ExtResource( 4 )
 
 [node name="Faixa" type="Sprite" parent="."]
 position = Vector2( 960, 270 )
 scale = Vector2( 0.554208, 0.554208 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="menino_colorido" type="Sprite" parent="."]
 position = Vector2( 300, 700 )
 scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="velho_colorido" type="Sprite" parent="."]
 position = Vector2( 1590, 700 )
 scale = Vector2( 0.35, 0.35 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
-[node name="CRT_Shader" parent="." instance=ExtResource( 7 )]
+[node name="CRT_Shader" parent="." instance=ExtResource( 8 )]
 

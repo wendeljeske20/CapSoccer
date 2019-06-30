@@ -8,5 +8,3 @@ func _ready():
 	
 func Back():
 	get_tree().change_scene("Scenes/Menu.tscn")
-	
-

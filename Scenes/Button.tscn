@@ -12,13 +12,13 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 45.904
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 81, 72 )
 axis_stretch_horizontal = 1
 modulate_color = Color( 0.329412, 0.337255, 0.8, 1 )
 
-[sub_resource type="StyleBoxTexture" id=5]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 81, 72 )
 
@@ -46,7 +46,6 @@ scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 3 )
 
 [node name="OutlineSprite" type="Sprite" parent="Sprite"]
-visible = false
 show_behind_parent = true
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 4 )
@@ -64,8 +63,8 @@ margin_left = 48.6023
 margin_top = -25.309
 margin_right = 129.602
 margin_bottom = 24.691
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 5 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 max_value = 10.0
 step = 0.5
 value = 6.5

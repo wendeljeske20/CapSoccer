@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MUSIC_EFFECT_Orchestral_Brass_Positive_06_stereo.wav-6ebadf4311a9e45f990f6aed0aed7575.sample"
+
+[deps]
+
+source_file="res://Audios/MUSIC_EFFECT_Orchestral_Brass_Positive_06_stereo.wav"
+dest_files=[ "res://.import/MUSIC_EFFECT_Orchestral_Brass_Positive_06_stereo.wav-6ebadf4311a9e45f990f6aed0aed7575.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

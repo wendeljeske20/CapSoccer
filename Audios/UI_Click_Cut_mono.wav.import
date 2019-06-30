@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UI_Click_Cut_mono.wav-d08f848724460702e8cd5287a52e4add.sample"
+
+[deps]
+
+source_file="res://Audios/UI_Click_Cut_mono.wav"
+dest_files=[ "res://.import/UI_Click_Cut_mono.wav-d08f848724460702e8cd5287a52e4add.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

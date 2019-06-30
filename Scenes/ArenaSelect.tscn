@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/ArenaSelect.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/mesa.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/ui_base.png" type="Texture" id=3]
 [ext_resource path="res://ButtonTheme.tres" type="Theme" id=4]
-[ext_resource path="res://default_theme.tres" type="Theme" id=5]
-[ext_resource path="res://ButtonArrowTheme.tres" type="Theme" id=6]
-[ext_resource path="res://Scenes/OverlayShader.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/ButtonSound.gd" type="Script" id=5]
+[ext_resource path="res://default_theme.tres" type="Theme" id=6]
+[ext_resource path="res://ButtonArrowTheme.tres" type="Theme" id=7]
+[ext_resource path="res://Scenes/OverlayShader.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Theme" id=1]
 
@@ -48,13 +49,14 @@ margin_bottom = 377.013
 rect_scale = Vector2( 1.18347, 1.18347 )
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 theme = ExtResource( 4 )
-text = "Jogar"
+text = "Jogar!"
+script = ExtResource( 5 )
 
 [node name="ArenaLabel" type="Label" parent="Panel"]
 margin_top = 50.0
 margin_right = 647.0
 margin_bottom = 123.0
-theme = ExtResource( 5 )
+theme = ExtResource( 6 )
 text = "Configuração de Arena"
 align = 1
 valign = 1
@@ -64,7 +66,7 @@ margin_left = 65.0
 margin_top = 169.837
 margin_right = 290.0
 margin_bottom = 260.837
-theme = ExtResource( 5 )
+theme = ExtResource( 6 )
 text = "Limite de
 gols"
 align = 1
@@ -74,7 +76,7 @@ margin_left = 400.0
 margin_top = 180.0
 margin_right = 524.0
 margin_bottom = 225.0
-theme = ExtResource( 5 )
+theme = ExtResource( 6 )
 text = "3"
 align = 1
 valign = 2
@@ -85,21 +87,23 @@ margin_top = 178.781
 margin_right = 433.619
 margin_bottom = 221.781
 rect_scale = Vector2( -1, 1 )
-theme = ExtResource( 6 )
+theme = ExtResource( 7 )
+script = ExtResource( 5 )
 
 [node name="GoalAmountRightButton" type="Button" parent="Panel"]
 margin_left = 530.0
 margin_top = 178.837
 margin_right = 570.0
 margin_bottom = 221.837
-theme = ExtResource( 6 )
+theme = ExtResource( 7 )
+script = ExtResource( 5 )
 
 [node name="MatchTimeLabel" type="Label" parent="Panel"]
 margin_left = 65.0
 margin_top = 291.837
 margin_right = 290.0
 margin_bottom = 382.837
-theme = ExtResource( 5 )
+theme = ExtResource( 6 )
 text = "Tempo da
 partida"
 align = 1
@@ -109,7 +113,7 @@ margin_left = 395.0
 margin_top = 302.0
 margin_right = 530.0
 margin_bottom = 347.0
-theme = ExtResource( 5 )
+theme = ExtResource( 6 )
 text = "5:00"
 align = 1
 valign = 2
@@ -120,21 +124,23 @@ margin_top = 301.837
 margin_right = 433.619
 margin_bottom = 344.837
 rect_scale = Vector2( -1, 1 )
-theme = ExtResource( 6 )
+theme = ExtResource( 7 )
+script = ExtResource( 5 )
 
 [node name="MatchTimeRightButton" type="Button" parent="Panel"]
 margin_left = 530.461
 margin_top = 301.837
 margin_right = 570.461
 margin_bottom = 344.837
-theme = ExtResource( 6 )
+theme = ExtResource( 7 )
+script = ExtResource( 5 )
 
 [node name="TurnTimeLabel" type="Label" parent="Panel"]
 margin_left = 65.0
 margin_top = 419.837
 margin_right = 290.0
 margin_bottom = 510.837
-theme = ExtResource( 5 )
+theme = ExtResource( 6 )
 text = "Tempo do
 turno"
 align = 1
@@ -144,7 +150,7 @@ margin_left = 398.0
 margin_top = 431.0
 margin_right = 529.0
 margin_bottom = 476.0
-theme = ExtResource( 5 )
+theme = ExtResource( 6 )
 text = "10"
 align = 1
 valign = 2
@@ -155,16 +161,18 @@ margin_top = 429.545
 margin_right = 433.158
 margin_bottom = 472.545
 rect_scale = Vector2( -1, 1 )
-theme = ExtResource( 6 )
+theme = ExtResource( 7 )
+script = ExtResource( 5 )
 
 [node name="TurnTimeRightButton" type="Button" parent="Panel"]
 margin_left = 530.0
 margin_top = 429.224
 margin_right = 570.0
 margin_bottom = 472.224
-theme = ExtResource( 6 )
+theme = ExtResource( 7 )
+script = ExtResource( 5 )
 
-[node name="OverlayShader" parent="." instance=ExtResource( 7 )]
+[node name="OverlayShader" parent="." instance=ExtResource( 8 )]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.0

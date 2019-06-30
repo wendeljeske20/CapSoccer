@@ -22,6 +22,8 @@ config/icon="res://Sprites/icon.png"
 [autoload]
 
 MatchParameters="*res://Scripts/MatchParameters.gd"
+BackgroundMusic="*res://Scenes/BackgroundMusic.tscn"
+UI_Audios="*res://Scenes/UI_Audios.tscn"
 
 [display]
 
