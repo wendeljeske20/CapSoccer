@@ -192,14 +192,11 @@ func CheckMatchEndTime():
 	elif(player1.score < player2.score):
 		matchResult = MATCH_END.RIGHT
 	
-	MatchParameters.winner = matchResult
 	EndMatch(matchResult)
 
 func EndMatch(result):
-	matchWinnerPanel.show()
-	# TODO: Change for art instead of Godot label
-	#matchWinnerPanel.get_child(0).text = "THE WINNER IS " + MATCH_END.keys()[result] + " SIDE!"
-	
+		# TODO: Change for art instead of Godot label
+	MatchParameters.winner = result
 	##CHAMA AQUI
 	get_tree().change_scene("Scenes/MatchEnd.tscn")
 

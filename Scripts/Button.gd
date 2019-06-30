@@ -67,6 +67,10 @@ func SetHightlightTexture(texture):
 	sprite = get_node("Sprite/OutlineSprite")
 	sprite.set_texture(texture)
 
+func SetShadowTexture(texture):
+	sprite = get_node("ShadowSprite")
+	sprite.set_texture(texture)
+
 func _integrate_forces(state):
 	rotation = m_angle
 	

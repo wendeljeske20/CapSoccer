@@ -36,12 +36,9 @@ func _ready():
 	playButton.connect("pressed",self,"Play")
 	playButton.grab_focus()
 	
-	if MatchParameters.maxGoals <= 0:
-		goalAmount.text = "Infinito"
-	else:
-		goalAmount.text = str(MatchParameters.maxGoals)
-	matchTime.text = str(MatchParameters.matchTime/60) + ":" + str(MatchParameters.matchTime%60)
-	turnTime.text = str(MatchParameters.turnTime)
+	ChangeGoalLimitAmount(0)
+	ChangeMatchTime(0)
+	ChangeTurnTime(0)
 	
 func Play():
 	get_tree().change_scene("Scenes/Match.tscn")

@@ -3,6 +3,7 @@ extends Node2D
 export(String) var playerID
 export(Texture) var sprite_texture
 export(Texture) var hightlight_texture
+export(Texture) var shadow_texture
 onready var scoreLabel = get_node("../HudManager/ScorePanel/Player"+ playerID +"Panel/scoreLabel")
 var score = 0;
 
@@ -31,6 +32,7 @@ func SpawnButtons():
 		#setting button sprites
 		button.SetTexture(sprite_texture)
 		button.SetHightlightTexture(hightlight_texture)
+		button.SetShadowTexture(shadow_texture)
 		
 		get_node("").add_child(button)
 		buttons.append(button)
