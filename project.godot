@@ -24,6 +24,7 @@ config/icon="res://Sprites/icon.png"
 MatchParameters="*res://Scripts/MatchParameters.gd"
 BackgroundMusic="*res://Scenes/BackgroundMusic.tscn"
 UI_Audios="*res://Scenes/UI_Audios.tscn"
+ShaderController="*res://Scenes/ShaderController.tscn"
 
 [display]
 

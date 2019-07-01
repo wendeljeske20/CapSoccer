@@ -1,24 +1,31 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Sprites/background.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Configurations.gd" type="Script" id=2]
 [ext_resource path="res://ButtonTheme.tres" type="Theme" id=3]
 [ext_resource path="res://Fonts/TovariSans.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Scripts/ButtonSound.gd" type="Script" id=5]
-[ext_resource path="res://Styles/BarFG.tres" type="StyleBox" id=6]
-[ext_resource path="res://Fonts/CantedFX Bold.otf" type="DynamicFontData" id=7]
-[ext_resource path="res://Scenes/OverlayShader.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/slider_grab_focus.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/slider_grab.png" type="Texture" id=7]
+[ext_resource path="res://Styles/BarFG.tres" type="StyleBox" id=8]
+[ext_resource path="res://Fonts/CantedFX Bold.otf" type="DynamicFontData" id=9]
+[ext_resource path="res://Scenes/OverlayShader.tscn" type="PackedScene" id=10]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 3840, 2160 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 54
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="DynamicFont" id=5]
+size = 80
+outline_size = 6
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 0.0
 content_margin_right = 0.0
 content_margin_top = 0.0
@@ -30,9 +37,9 @@ border_color = Color( 1, 1, 1, 1 )
 corner_detail = 1
 expand_margin_right = 6.0
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 64
-font_data = ExtResource( 7 )
+font_data = ExtResource( 9 )
 
 [node name="Configurations" type="Panel"]
 margin_right = 1920.0
@@ -46,14 +53,64 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -892.434
-margin_top = 337.655
+margin_top = 370.0
 margin_right = -592.434
-margin_bottom = 457.655
+margin_bottom = 490.0
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 theme = ExtResource( 3 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "VOLTAR"
 script = ExtResource( 5 )
+
+[node name="ScreenEffectButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -550.0
+margin_top = 40.0
+margin_right = -50.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 0.5, 0.5 )
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "EFEITOS ESPECIAIS"
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="ScreenEffectButton"]
+margin_left = 610.0
+margin_right = 880.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.254902, 0.321569, 0.905882, 1 )
+text = "LIGADO"
+align = 1
+valign = 1
+
+[node name="FullscreenButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -550.0
+margin_top = 200.0
+margin_right = -50.0
+margin_bottom = 320.0
+rect_pivot_offset = Vector2( 0.5, 0.5 )
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "TELA CHEIA"
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="FullscreenButton"]
+margin_left = 610.0
+margin_right = 880.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.254902, 0.321569, 0.905882, 1 )
+text = "LIGADO"
+align = 1
+valign = 1
 
 [node name="MusicSlider" type="HSlider" parent="."]
 anchor_left = 0.5
@@ -64,8 +121,10 @@ margin_right = 390.0
 margin_bottom = 358.0
 size_flags_horizontal = 0
 size_flags_stretch_ratio = 0.0
-custom_styles/slider = SubResource( 2 )
-custom_styles/grabber_area = ExtResource( 6 )
+custom_icons/grabber_highlight = ExtResource( 6 )
+custom_icons/grabber = ExtResource( 7 )
+custom_styles/slider = SubResource( 3 )
+custom_styles/grabber_area = ExtResource( 8 )
 step = 10.0
 value = 50.0
 ticks_on_borders = false
@@ -75,7 +134,7 @@ margin_left = 870.0
 margin_top = -15.0
 margin_right = 1050.0
 margin_bottom = 75.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "50%"
 align = 1
 valign = 1
@@ -85,7 +144,7 @@ margin_left = -390.0
 margin_top = -15.0
 margin_right = -80.0
 margin_bottom = 75.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "MÚSICA"
 align = 1
 valign = 1
@@ -99,8 +158,10 @@ margin_right = 390.0
 margin_bottom = 493.0
 size_flags_horizontal = 0
 size_flags_stretch_ratio = 0.0
-custom_styles/slider = SubResource( 2 )
-custom_styles/grabber_area = ExtResource( 6 )
+custom_icons/grabber_highlight = ExtResource( 6 )
+custom_icons/grabber = ExtResource( 7 )
+custom_styles/slider = SubResource( 3 )
+custom_styles/grabber_area = ExtResource( 8 )
 step = 10.0
 value = 50.0
 ticks_on_borders = false
@@ -110,7 +171,7 @@ margin_left = 870.0
 margin_top = -15.0
 margin_right = 1050.0
 margin_bottom = 75.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "50%"
 align = 1
 valign = 1
@@ -120,12 +181,12 @@ margin_left = -390.0
 margin_top = -15.0
 margin_right = -80.0
 margin_bottom = 75.0
-custom_fonts/font = SubResource( 3 )
-text = "efeitos"
+custom_fonts/font = SubResource( 4 )
+text = "EFEITOS"
 align = 1
 valign = 1
 
-[node name="OverlayShader" parent="." instance=ExtResource( 8 )]
+[node name="OverlayShader" parent="." instance=ExtResource( 10 )]
 margin_left = -4.52997
 margin_top = -7.11608
 margin_right = 1221.47

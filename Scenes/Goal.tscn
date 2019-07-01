@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/GoalSetter.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/GoalSound.gd" type="Script" id=2]
 [ext_resource path="res://Audios/IMPACT_Metal_Cling_Clean_mono.wav" type="AudioStream" id=3]
-[ext_resource path="res://Sprites/goleira.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/Goal.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/goleira_sombra.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/goleira.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Goal.gd" type="Script" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.04128
@@ -37,16 +38,21 @@ one_way_collision_margin = 0.0
 [node name="Audio" type="AudioStreamPlayer" parent="Crossbar"]
 stream = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sombra" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.282353 )
 scale = Vector2( 0.170853, 0.170853 )
 texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.170853, 0.170853 )
+texture = ExtResource( 5 )
 
 [node name="GoalCollider" type="RigidBody2D" parent="."]
 position = Vector2( 13.8771, 0 )
 mode = 1
 contacts_reported = 3
 contact_monitor = true
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalCollider"]
 position = Vector2( 0, -0.944557 )

@@ -35,5 +35,6 @@ bus = "Effects"
 bus = "Effects"
 
 [node name="Whistle" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
 bus = "Effects"
 

@@ -1,26 +1,29 @@
 extends Node
 
 # Turn timer (in seconds)
-export(int) var turnTime = 10
+export(int) var turnTime = 6
 
 # Game end rules
 # Match time
-export(int) var matchTime = 180
-export(int) var maxGoals = 5
+export(int) var matchTime = 120
+export(int) var maxGoals = 3
 
 export(bool) var useMaxTime = false
 export(bool) var useMaxGoals = false
 
 export(int) var winner = 0
 
+var musicVolume = 100
+var effectsVolume = 100
+
 # Right side player positions only
 # For the left player we invert the X axis
 # TODO: Needs to be dynamic for varying sized teams
 # Maybe be a player input?
 var playerPositions = [
-	Vector2(100, 0),
-	Vector2(250, -150),
-	Vector2(250, 150)
+	Vector2(200, 0),
+	Vector2(350, -100),
+	Vector2(350, 100)
 ]
 
 func AddMatchTime(delta):

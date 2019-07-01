@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites/logo2 .png" type="Texture" id=5]
 [ext_resource path="res://Sprites/menino_colorido.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/velho_colorido.png" type="Texture" id=7]
-[ext_resource path="res://Shaders/CRT_Shader.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/OverlayShader.tscn" type="PackedScene" id=8]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -89,5 +89,9 @@ position = Vector2( 1590, 700 )
 scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 7 )
 
-[node name="CRT_Shader" parent="." instance=ExtResource( 8 )]
+[node name="OverlayShader" parent="." instance=ExtResource( 8 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 1920.0
+margin_bottom = 1080.0
 
