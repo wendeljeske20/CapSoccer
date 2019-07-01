@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/whistle4.ogg-71acf114d4436295a73396028ae7222f.oggstr"
+
+[deps]
+
+source_file="res://Audios/whistle4.ogg"
+dest_files=[ "res://.import/whistle4.ogg-71acf114d4436295a73396028ae7222f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
