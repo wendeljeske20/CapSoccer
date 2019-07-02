@@ -10,11 +10,15 @@ var currentPlayer = null
 # Timers
 onready var matchTimer = get_node("MatchTimer")
 onready var turnTimer : Timer = get_node("TurnTimer")
+onready var goalPause = get_node("GoalPause")
+onready var matchStartTimer = get_node("StartGameLabel/Timer")
 
 # UI
 onready var timeLabel = get_node("HudManager/ScorePanel/TimeLabel")
 onready var timeBar = get_node("HudManager/TurnTimeBar")
 onready var pausePanel = get_node("../Pause")
+onready var logo = get_node("Logo")
+onready var startLabel = get_node("StartGameLabel")
 
 # Input Section
 var inputRight = 0
@@ -38,10 +42,7 @@ enum MATCH_END {
 var scoringPlayer = null
 
 func _ready():
-	
-	UI_Audios.playWhistle()
-	
-		# Init players
+	# Init players
 	player1.startPositions = MatchParameters.GetPlayerPosition(true)
 	player2.startPositions = MatchParameters.GetPlayerPosition(false)
 	
@@ -58,17 +59,23 @@ func _ready():
 	turnTimer.wait_time = MatchParameters.turnTime
 	turnTimer.start()
 	timeBar.max_value = MatchParameters.turnTime
+	timeBar.value = MatchParameters.turnTime
 	
 	# Starting ball
 	#get_node("BallManager").change_ball(load("res://Scenes/Balls/Ball-Official.tscn").instance())
 	
-	pass 
+	matchStartTimer.start()
 
 func _process(delta):
 	
 	# Timers
-	UpdateTimers()
-	CheckTurnTimer()
+	if matchStartTimer.get_time_left() > 0:
+		PauseTimers(true)
+		startLabel.show()
+		startLabel.text = str(int(ceil(matchStartTimer.get_time_left())))
+	else:
+		UpdateTimers()
+		CheckTurnTimer()
 	
 	# Player Input
 	ProcessInput()
@@ -81,11 +88,21 @@ func _process(delta):
 		if(matchWinner):
 			EndMatch(matchWinner)
 		else:
+			PauseTimers(true)
 			UI_Audios.playGoal()
+			logo.StartEffect()
+			goalPause.start()
+			
 			player1.ResetButtonPositions()
 			player2.ResetButtonPositions()
+			
 			InvertTurn()
+			
 	pass
+
+func PauseTimers(pause):
+	matchTimer.paused = pause
+	turnTimer.paused = pause
 
 func InvertTurn():
 	currentPlayer.ClearCurrentButton()
@@ -127,22 +144,22 @@ func ProcessInput():
 	else:
 		changeDirection = false
 	
-	if(Input.is_action_just_pressed(currentController+"_lb")):
-		currentPlayer.CycleCurrentButton(-1)
-	if(Input.is_action_just_pressed(currentController+"_rb")):
-		currentPlayer.CycleCurrentButton(1)
-	if(Input.is_action_just_pressed(currentController+"_a_button")):
-		currentPlayer.ShootButton()
-		
 	movementDirection.x = inputRight - inputLeft
 	movementDirection.y = inputUp - inputDown
 	
+	if !turnTimer.paused:
+		if(Input.is_action_just_pressed(currentController+"_lb")):
+			currentPlayer.CycleCurrentButton(-1)
+		if(Input.is_action_just_pressed(currentController+"_rb")):
+			currentPlayer.CycleCurrentButton(1)
+		if(Input.is_action_just_pressed(currentController+"_a_button")):
+			currentPlayer.ShootButton()
+
 # Pause the process function, physics, timers and the shootBar of current button
 func PauseMatch(pause):
 	set_process(!pause)
 	Physics2DServer.set_active(!pause)
-	matchTimer.paused = pause
-	turnTimer.paused = pause
+	PauseTimers(pause)
 	var currentButtonIndex = currentPlayer.currentButton
 	currentPlayer.buttons[currentButtonIndex].set_process(!pause)
 	
@@ -212,3 +229,12 @@ func EndMatch(result):
 func _on_MatchTimer_timeout():
 	if MatchParameters.useMaxTime:
 		CheckMatchEndTime()
+
+func _on_GoalPause_timeout():
+	PauseTimers(false)
+	matchStartTimer.start()
+
+func _on_Timer_timeout():
+	startLabel.hide()
+	PauseTimers(false)
+	UI_Audios.playWhistle()
