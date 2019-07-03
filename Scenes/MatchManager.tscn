@@ -206,9 +206,9 @@ one_shot = true
 
 [node name="StartGameLabel" type="Label" parent="."]
 margin_left = -940.0
-margin_top = -530.0
+margin_top = -529.0
 margin_right = 940.0
-margin_bottom = 480.0
+margin_bottom = 481.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.254902, 0.321569, 0.905882, 1 )
 text = "3"

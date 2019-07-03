@@ -4,6 +4,8 @@ onready var restartButton = get_node("RestartButton")
 onready var arenaSelectButton = get_node("ArenaSelectButton")
 onready var menuButton = get_node("MenuButton")
 onready var winnerLabel = get_node("WinnerLabel")
+onready var player1ScoreLabel = get_node("Player1Panel/scoreLabel")
+onready var player2ScoreLabel = get_node("Player2Panel/scoreLabel")
 
 func _ready():
 	UI_Audios.playEndGame()
@@ -21,6 +23,9 @@ func _ready():
 		winnerLabel.text = "Jogador 2 venceu!"
 	elif(MatchParameters.winner == 1):
 		winnerLabel.text = "Jogador 1 venceu!"
+		
+	player1ScoreLabel.text = String(MatchParameters.player1Score)
+	player2ScoreLabel.text = String(MatchParameters.player2Score)
 
 func Restart():
 	get_tree().change_scene("Scenes/Match.tscn")

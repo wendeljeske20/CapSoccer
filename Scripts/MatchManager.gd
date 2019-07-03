@@ -207,6 +207,9 @@ func CheckMatchEndGoals():
 			return MATCH_END.LEFT
 		if(player2.score == MatchParameters.maxGoals):
 			return MATCH_END.RIGHT
+			
+	MatchParameters.player1Score = player1.score
+	MatchParameters.player2Score = player2.score
 	return MATCH_END.NULL
 
 func CheckMatchEndTime():
@@ -216,6 +219,9 @@ func CheckMatchEndTime():
 		matchResult = MATCH_END.LEFT
 	elif(player1.score < player2.score):
 		matchResult = MATCH_END.RIGHT
+		
+	MatchParameters.player1Score = player1.score
+	MatchParameters.player2Score = player2.score
 	
 	EndMatch(matchResult)
 

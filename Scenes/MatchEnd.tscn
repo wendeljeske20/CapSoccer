@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Sprites/background.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/MatchEnd.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/menino_colorido.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/velho_colorido.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/OverlayShader.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Fonts/endGameScoreFont.tres" type="DynamicFont" id=10]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
@@ -18,6 +19,32 @@ region_rect = Rect2( 0, 0, 3840, 2160 )
 size = 120
 outline_size = 12
 font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.996078, 0.839216, 0.541176, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color( 0, 0, 0, 0.0588235 )
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.321569, 0.666667, 1, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="MatchEnd" type="Panel"]
 margin_left = -1.6176
@@ -29,12 +56,13 @@ script = ExtResource( 2 )
 
 [node name="RestartButton" type="Button" parent="."]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 margin_left = -184.999
-margin_top = 641.73
+margin_top = 101.391
 margin_right = 185.001
-margin_bottom = -318.272
+margin_bottom = 221.391
 rect_pivot_offset = Vector2( 0.5, 0.5 )
 theme = ExtResource( 3 )
 text = "Jogar novamente"
@@ -85,7 +113,8 @@ align = 1
 valign = 1
 
 [node name="Logo" type="Sprite" parent="."]
-position = Vector2( 959.678, 411.392 )
+visible = false
+position = Vector2( 961.618, -248.608 )
 scale = Vector2( 0.499343, 0.499343 )
 texture = ExtResource( 6 )
 
@@ -100,9 +129,48 @@ scale = Vector2( 0.35, 0.35 )
 texture = ExtResource( 8 )
 
 [node name="OverlayShader" parent="." instance=ExtResource( 9 )]
-margin_left = -4.08215
+margin_left = -3.3824
 margin_top = -3.60816
-margin_right = 1221.92
+margin_right = 1222.62
 margin_bottom = 688.391
 rect_scale = Vector2( 1.56887, 1.56879 )
+
+[node name="Player1Panel" type="Panel" parent="."]
+margin_left = 700.0
+margin_top = 280.0
+margin_right = 885.0
+margin_bottom = 465.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="scoreLabel" type="Label" parent="Player1Panel"]
+anchor_right = 0.5
+anchor_bottom = 0.3
+margin_left = 1.83093
+margin_top = -8.60815
+margin_right = 94.3309
+margin_bottom = 124.892
+rect_rotation = 0.0646631
+custom_fonts/font = ExtResource( 10 )
+text = "7"
+align = 1
+valign = 1
+
+[node name="Player2Panel" type="Panel" parent="."]
+margin_left = 1020.0
+margin_top = 280.0
+margin_right = 1205.0
+margin_bottom = 465.0
+custom_styles/panel = SubResource( 4 )
+
+[node name="scoreLabel" type="Label" parent="Player2Panel"]
+anchor_right = 0.5
+anchor_bottom = 0.3
+margin_left = 1.83093
+margin_top = -8.60815
+margin_right = 94.3309
+margin_bottom = 124.892
+custom_fonts/font = ExtResource( 10 )
+text = "5"
+align = 1
+valign = 1
 

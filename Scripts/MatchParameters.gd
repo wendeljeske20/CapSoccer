@@ -13,6 +13,9 @@ export(bool) var useMaxGoals = false
 
 export(int) var winner = 0
 
+export(int) var player1Score = 0
+export(int) var player2Score = 0
+
 var musicVolume = 100
 var effectsVolume = 100
 
